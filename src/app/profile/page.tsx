@@ -10,7 +10,7 @@ export default function Profile() {
           <button className="flex size-12 items-center justify-center rounded-full border-[3px] border-s5-flat-black bg-white shadow-hard-btn hover:bg-gray-50 transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
             <span className="material-symbols-outlined font-bold">arrow_back</span>
           </button>
-          <h2 className="text-xl font-black tracking-wider text-s5-flat-black uppercase">Profile</h2>
+          <h2 className="text-xl font-black tracking-wider text-s5-flat-black uppercase">个人中心</h2>
           <button className="flex size-12 items-center justify-center rounded-full border-[3px] border-s5-flat-black bg-white shadow-hard-btn hover:bg-gray-50 transition-all active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
             <span className="material-symbols-outlined font-bold">settings</span>
           </button>
@@ -39,7 +39,7 @@ export default function Profile() {
             <p className="text-sm font-bold text-gray-500 mb-2">@elena_learns</p>
             <div className="inline-flex items-center px-3 py-1 bg-s5-flat-black text-white rounded-full text-xs font-bold w-max">
               <span className="material-symbols-outlined text-[14px] mr-1 text-s5-flat-yellow">stars</span>
-              Level 12
+              等级 12
             </div>
           </div>
         </div>
@@ -48,15 +48,15 @@ export default function Profile() {
         <div className="grid grid-cols-3 gap-3 mb-5">
           <div className="bento-card bg-s5-flat-blue p-3 flex flex-col items-center justify-center shadow-hard min-h-[100px]">
             <span className="text-3xl font-black text-s5-flat-black mb-1">12</span>
-            <span className="text-[10px] font-black uppercase text-s5-flat-black/70 tracking-widest">Courses</span>
+            <span className="text-[10px] font-black uppercase text-s5-flat-black/70 tracking-widest">课程数</span>
           </div>
           <div className="bento-card bg-s5-flat-pink p-3 flex flex-col items-center justify-center shadow-hard min-h-[100px]">
             <span className="text-3xl font-black text-s5-flat-black mb-1">84%</span>
-            <span className="text-[10px] font-black uppercase text-s5-flat-black/70 tracking-widest">Done</span>
+            <span className="text-[10px] font-black uppercase text-s5-flat-black/70 tracking-widest">完成率</span>
           </div>
           <div className="bento-card bg-s5-flat-yellow p-3 flex flex-col items-center justify-center shadow-hard min-h-[100px]">
             <span className="text-3xl font-black text-s5-flat-black mb-1">45h</span>
-            <span className="text-[10px] font-black uppercase text-s5-flat-black/70 tracking-widest">Time</span>
+            <span className="text-[10px] font-black uppercase text-s5-flat-black/70 tracking-widest">学习时长</span>
           </div>
         </div>
 
@@ -64,11 +64,11 @@ export default function Profile() {
         <div className="bento-card bg-white p-5 mb-5 shadow-hard relative">
           <div className="flex justify-between items-end mb-4">
             <div>
-              <h3 className="text-lg font-black text-s5-flat-black leading-tight">Mood Gallery</h3>
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mt-1">Today&apos;s Vibe</p>
+              <h3 className="text-lg font-black text-s5-flat-black leading-tight">心情画廊</h3>
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mt-1">今日状态</p>
             </div>
             <button className="text-xs font-bold border-2 border-s5-flat-black px-3 py-1 rounded-full hover:bg-s5-flat-black hover:text-white transition-colors">
-              Edit
+              编辑
             </button>
           </div>
           <div className="grid grid-cols-3 gap-3">
@@ -78,7 +78,7 @@ export default function Profile() {
                   😰
                 </span>
               </div>
-              <span className="text-[10px] font-bold text-gray-400 group-hover:text-s5-flat-black">Nervous</span>
+              <span className="text-[10px] font-bold text-gray-400 group-hover:text-s5-flat-black">紧张</span>
             </div>
             <div className="group cursor-pointer flex flex-col items-center gap-2">
               <div className="w-full aspect-square rounded-2xl border-[3px] border-s5-flat-black bg-s5-flat-yellow flex items-center justify-center shadow-hard-sm relative overflow-hidden">
@@ -86,7 +86,7 @@ export default function Profile() {
                 <div className="absolute top-1 right-1 size-3 bg-s5-flat-pink rounded-full border-2 border-s5-flat-black"></div>
               </div>
               <span className="text-[10px] font-black text-s5-flat-black bg-s5-flat-yellow px-2 py-0.5 rounded-full border border-s5-flat-black">
-                Manic
+                活跃
               </span>
             </div>
             <div className="group cursor-pointer flex flex-col items-center gap-2">
@@ -95,13 +95,13 @@ export default function Profile() {
                   🐱
                 </span>
               </div>
-              <span className="text-[10px] font-bold text-gray-400 group-hover:text-s5-flat-black">Curious</span>
+              <span className="text-[10px] font-bold text-gray-400 group-hover:text-s5-flat-black">好奇</span>
             </div>
           </div>
         </div>
 
         {/* Settings */}
-        <h3 className="text-lg font-black text-s5-flat-black px-1 mb-3">Settings</h3>
+        <h3 className="text-lg font-black text-s5-flat-black px-1 mb-3">设置</h3>
         <div className="grid grid-cols-2 gap-3 mb-5">
           <Link href="/trophy-room" className="bento-card col-span-2 bg-s5-flat-purple p-4 shadow-hard flex items-center justify-between hover:scale-[1.02] transition-transform">
             <div className="flex items-center gap-4">
@@ -109,8 +109,8 @@ export default function Profile() {
                 <span className="material-symbols-outlined font-bold">emoji_events</span>
               </div>
               <div>
-                <p className="font-black text-s5-flat-black leading-tight text-lg">Trophy Room</p>
-                <p className="text-xs text-s5-flat-black font-bold opacity-70">View Achievements</p>
+                <p className="font-black text-s5-flat-black leading-tight text-lg">荣誉室</p>
+                <p className="text-xs text-s5-flat-black font-bold opacity-70">查看我的成就</p>
               </div>
             </div>
             <div className="size-10 rounded-full border-[3px] border-s5-flat-black bg-white flex items-center justify-center">
@@ -123,8 +123,8 @@ export default function Profile() {
                 <span className="material-symbols-outlined">psychology</span>
               </div>
               <div>
-                <p className="font-black text-s5-flat-black leading-tight text-lg">AI Persona</p>
-                <p className="text-xs text-s5-flat-black font-bold opacity-70">Socratic Mentor</p>
+                <p className="font-black text-s5-flat-black leading-tight text-lg">AI 人设</p>
+                <p className="text-xs text-s5-flat-black font-bold opacity-70">苏格拉底式导师</p>
               </div>
             </div>
             <button className="size-10 rounded-full border-[3px] border-s5-flat-black bg-white hover:bg-s5-flat-black hover:text-white flex items-center justify-center transition-colors">
@@ -136,9 +136,9 @@ export default function Profile() {
               <span className="material-symbols-outlined">lock</span>
             </div>
             <div>
-              <p className="font-black text-s5-flat-black leading-tight">Privacy</p>
+              <p className="font-black text-s5-flat-black leading-tight">隐私设置</p>
               <p className="text-[10px] text-s5-flat-black font-bold opacity-70 uppercase tracking-wide mt-1">
-                Strict Mode
+                严格模式
               </p>
             </div>
           </div>
@@ -154,8 +154,8 @@ export default function Profile() {
               </label>
             </div>
             <div>
-              <p className="font-black text-s5-flat-black leading-tight">Nudges</p>
-              <p className="text-[10px] text-gray-500 font-bold uppercase tracking-wide mt-1">Daily On</p>
+              <p className="font-black text-s5-flat-black leading-tight">提醒</p>
+              <p className="text-[10px] text-gray-500 font-bold uppercase tracking-wide mt-1">每日开启</p>
             </div>
           </div>
         </div>
@@ -168,16 +168,16 @@ export default function Profile() {
           <div className="flex justify-between items-start mb-6 relative z-10">
             <div>
               <p className="text-[10px] font-bold text-s5-flat-yellow uppercase tracking-widest border border-s5-flat-yellow rounded-md px-2 py-0.5 inline-block mb-2">
-                Current Plan
+                当前计划
               </p>
-              <p className="text-2xl font-black text-white mt-1">Pro Learner</p>
+              <p className="text-2xl font-black text-white mt-1">专业学习者</p>
             </div>
             <div className="size-8 rounded-full border-2 border-white bg-green-400 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></div>
           </div>
           <div className="space-y-3 relative z-10">
             <div className="flex justify-between items-center text-xs font-bold text-gray-300">
               <span className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-[16px]">folder</span> Storage
+                <span className="material-symbols-outlined text-[16px]">folder</span> 存储空间
               </span>
               <span className="text-white">4.2GB / 10GB</span>
             </div>
@@ -191,7 +191,7 @@ export default function Profile() {
         <div className="px-2 pb-24">
           <button className="w-full py-4 rounded-2xl border-[3px] border-s5-flat-black bg-white shadow-hard text-s5-flat-black font-black uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-red-50 hover:text-red-600 transition-colors active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
             <span className="material-symbols-outlined">logout</span>
-            Sign Out
+            退出登录
           </button>
         </div>
       </div>

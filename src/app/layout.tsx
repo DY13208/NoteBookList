@@ -45,33 +45,33 @@ export default function RootLayout({
       <body
         className={`${nunito.variable} ${plusJakartaSans.variable} ${mPlusRounded1c.variable} ${notoSans.variable} antialiased`}
       >
-        <nav className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-md border-t border-gray-200 z-[100] flex justify-around py-2 px-4 shadow-lg">
-          <Link href="/" className="flex flex-col items-center gap-1 text-xs font-bold text-gray-600 hover:text-s1-flat-blue transition-colors">
-            <span className="material-symbols-outlined">home</span>
-            <span>Home</span>
-          </Link>
-          <Link href="/prompts" className="flex flex-col items-center gap-1 text-xs font-bold text-gray-600 hover:text-s2-primary transition-colors">
-            <span className="material-symbols-outlined">description</span>
-            <span>Prompts</span>
-          </Link>
-          <Link href="/shop" className="flex flex-col items-center gap-1 text-xs font-bold text-gray-600 hover:text-s3-primary transition-colors">
-            <span className="material-symbols-outlined">shopping_bag</span>
-            <span>Shop</span>
-          </Link>
-          <Link href="/notes/neural-networks" className="flex flex-col items-center gap-1 text-xs font-bold text-gray-600 hover:text-s4-flat-primary transition-colors">
-            <span className="material-symbols-outlined">book</span>
-            <span>Notes</span>
-          </Link>
-          <Link href="/profile" className="flex flex-col items-center gap-1 text-xs font-bold text-gray-600 hover:text-s5-accent-blue transition-colors">
-            <span className="material-symbols-outlined">person</span>
-            <span>Profile</span>
-          </Link>
-          <Link href="/projects" className="flex flex-col items-center gap-1 text-xs font-bold text-gray-600 hover:text-s6-primary transition-colors">
-            <span className="material-symbols-outlined">assignment</span>
-            <span>Projects</span>
-          </Link>
+        <nav className="fixed bottom-0 left-0 right-0 bg-white/95 dark:bg-[#1a0c11]/95 backdrop-blur-md border-t-2 border-gray-100 dark:border-white/10 z-[100] px-6 py-4 pb-8 flex justify-center items-center shadow-[0_-5px_20px_rgba(0,0,0,0.05)]">
+          <div className="flex w-full max-w-lg justify-around items-center">
+            <Link href="/" className="flex flex-col items-center gap-1 text-[#8a6072] hover:text-[#f4257b] transition-all group">
+              <span className="material-symbols-outlined text-[28px] group-hover:-translate-y-1 transition-transform">home</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider">首页</span>
+            </Link>
+
+            <Link href="/notes/neural-networks" className="flex flex-col items-center gap-1 text-[#8a6072] hover:text-[#f4257b] transition-all group">
+              <span className="material-symbols-outlined text-[28px] group-hover:-translate-y-1 transition-transform">school</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider">学习</span>
+            </Link>
+
+            <Link href="/trophy-room" className="flex flex-col items-center gap-1 text-[#f4257b] transition-all group">
+              <div className="bg-[#f4257b]/10 rounded-full px-4 py-1 mb-0.5">
+                <span className="material-symbols-outlined text-[28px]" style={{ fontVariationSettings: "'FILL' 1" }}>emoji_events</span>
+              </div>
+              <span className="text-[10px] font-bold uppercase tracking-wider">荣誉室</span>
+            </Link>
+
+            <Link href="/profile" className="flex flex-col items-center gap-1 text-[#8a6072] hover:text-[#f4257b] transition-all group">
+              <span className="material-symbols-outlined text-[28px] group-hover:-translate-y-1 transition-transform">person</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider">我的</span>
+            </Link>
+          </div>
         </nav>
-        <div className="pb-16">
+
+        <div className="pb-24">
           {children}
         </div>
       </body>
