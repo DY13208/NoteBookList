@@ -1,0 +1,21 @@
+
+> new-app@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.12
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.0.2:3000
+
+ ✓ Starting...
+ ✓ Ready in 2.1s
+ ○ Compiling /login ...
+ ✓ Compiled /login in 15.4s (673 modules)
+ GET /login 200 in 17186ms
+ ○ Compiling /signup ...
+ ✓ Compiled /signup in 790ms (644 modules)
+ GET /signup 200 in 1407ms
+ ✓ Compiled /notes in 397ms (637 modules)
+ GET /notes 200 in 728ms
+ ✓ Compiled /trophy-room/share/[id] in 466ms (644 modules)
+ GET /trophy-room/share/starry 200 in 2059ms
+ GET /trophy-room/share/forest 200 in 222ms
