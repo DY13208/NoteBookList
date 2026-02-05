@@ -12,9 +12,9 @@ export default function RedemptionSuccess() {
           <Link href="/shop" className="text-[#181114] dark:text-white flex size-12 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
             <span className="material-symbols-outlined text-[24px]">close</span>
           </Link>
-          <h2 className="text-[#181114] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Redemption</h2>
+          <h2 className="text-[#181114] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">兑换结果</h2>
           <div className="flex w-12 items-center justify-end">
-            <Link href="/shop" className="text-[#f4257b] text-base font-bold leading-normal tracking-[0.015em] shrink-0 hover:opacity-80">Done</Link>
+            <Link href="/shop" className="text-[#f4257b] text-base font-bold leading-normal tracking-[0.015em] shrink-0 hover:opacity-80">完成</Link>
           </div>
         </div>
 
@@ -25,7 +25,7 @@ export default function RedemptionSuccess() {
             <div className="relative bg-white border-4 border-[#181114] rounded-2xl p-4 shadow-[4px_4px_0px_0px_#181114]
               after:content-[''] after:absolute after:bottom-[-20px] after:left-1/2 after:-translate-x-1/2 after:border-t-[20px] after:border-t-[#181114] after:border-x-[20px] after:border-x-transparent
               before:content-[''] before:absolute before:bottom-[-14px] before:left-1/2 before:-translate-x-1/2 before:border-t-[17px] before:border-t-white before:border-x-[17px] before:border-x-transparent before:z-[1]">
-              <h1 className="text-[#181114] tracking-tight text-[32px] font-extrabold leading-tight text-center uppercase">YAH!</h1>
+              <h1 className="text-[#181114] tracking-tight text-[32px] font-extrabold leading-tight text-center uppercase">呀哈！</h1>
             </div>
           </div>
 
@@ -54,8 +54,8 @@ export default function RedemptionSuccess() {
                   >
                   </div>
                   <div className="flex flex-col justify-center">
-                    <p className="text-[#181114] dark:text-white text-xl font-extrabold leading-tight tracking-[-0.015em]">Success!</p>
-                    <p className="text-[#8a6072] dark:text-gray-300 text-base font-medium leading-normal">New Theme Unlocked!</p>
+                    <p className="text-[#181114] dark:text-white text-xl font-extrabold leading-tight tracking-[-0.015em]">兑换成功！</p>
+                    <p className="text-[#8a6072] dark:text-gray-300 text-base font-medium leading-normal">新主题已解锁！</p>
                   </div>
                   <div className="ml-auto flex items-center justify-center size-10 rounded-full bg-green-100 border-2 border-green-500 text-green-600">
                     <span className="material-symbols-outlined font-bold">check</span>
@@ -63,8 +63,8 @@ export default function RedemptionSuccess() {
                 </div>
               </div>
               <div className="bg-[#f4257b]/10 dark:bg-[#f4257b]/20 p-3 border-t-2 border-[#181114] flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#181114] dark:text-white px-2">Reward</span>
-                <span className="text-xs font-bold text-[#f4257b] px-2">Standard Pack</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-[#181114] dark:text-white px-2">奖励</span>
+                <span className="text-xs font-bold text-[#f4257b] px-2">标准皮肤包</span>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@ export default function RedemptionSuccess() {
         <div className="fixed bottom-0 left-0 w-full p-4 bg-[#f8f5f7] dark:bg-[#221017] bg-opacity-95 backdrop-blur-sm border-t border-gray-100 dark:border-gray-800">
           <div className="flex justify-center w-full max-w-md mx-auto">
             <Link href="/shop" className="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 px-5 bg-[#f4257b] hover:bg-[#f4257b]/90 text-white text-lg font-bold leading-normal tracking-[0.015em] shadow-none border-b-4 border-[#c01d60] active:border-b-0 active:translate-y-1 transition-all">
-              <span className="truncate">Awesome!</span>
+              <span className="truncate">太棒了！</span>
             </Link>
           </div>
           {/* Spacer for safe area on mobile */}

@@ -10,7 +10,7 @@ export default function AchievementShareCard() {
 
   // In a real app, we'd fetch data based on id
   const achievement = {
-    title: "Master Learner",
+    title: "学习大师",
     userName: "Alex Smith",
     notesCount: "100+",
     daysCount: "50",
@@ -46,10 +46,10 @@ export default function AchievementShareCard() {
         {/* Headline Section */}
         <div className="relative z-10 pt-6 pb-2 text-center px-4">
           <div className="inline-block bg-[#f4257b]/10 rounded-full px-4 py-1 mb-2">
-            <span className="text-[#f4257b] text-xs font-bold tracking-widest uppercase">Milestone Reached</span>
+            <span className="text-[#f4257b] text-xs font-bold tracking-widest uppercase">达成里程碑</span>
           </div>
           <h1 className="text-3xl font-extrabold text-[#181114] tracking-tight leading-none drop-shadow-sm">
-            CONGRATULATIONS!
+            恭喜达成！
           </h1>
         </div>
 
@@ -70,7 +70,7 @@ export default function AchievementShareCard() {
               <p className="text-base font-medium">{achievement.userName}</p>
             </div>
             <div className="mt-2 bg-green-100 text-green-700 text-xs font-bold py-1 px-3 rounded-full self-center">
-              Achievement Unlocked
+              成就解锁
             </div>
           </div>
         </div>
@@ -80,12 +80,12 @@ export default function AchievementShareCard() {
           <div className="flex gap-3">
             <div className="flex flex-1 flex-col items-center gap-1 rounded-xl p-4 bg-[#fef2f2] border-2 border-[#fecaca]">
               <span className="material-symbols-outlined text-[#f4257b] text-2xl">edit_note</span>
-              <p className="text-[#181114] text-xs font-bold uppercase tracking-wider text-center">Notes</p>
+              <p className="text-[#181114] text-xs font-bold uppercase tracking-wider text-center">笔记数</p>
               <p className="text-[#f4257b] text-2xl font-black leading-none">{achievement.notesCount}</p>
             </div>
             <div className="flex flex-1 flex-col items-center gap-1 rounded-xl p-4 bg-[#fef2f2] border-2 border-[#fecaca]">
               <span className="material-symbols-outlined text-[#f4257b] text-2xl">calendar_month</span>
-              <p className="text-[#181114] text-xs font-bold uppercase tracking-wider text-center">Days</p>
+              <p className="text-[#181114] text-xs font-bold uppercase tracking-wider text-center">打卡天数</p>
               <p className="text-[#f4257b] text-2xl font-black leading-none">{achievement.daysCount}</p>
             </div>
           </div>
@@ -103,7 +103,7 @@ export default function AchievementShareCard() {
               </div>
               <div className="flex flex-col text-left">
                 <span className="text-sm font-bold text-gray-900 leading-tight">Chiikawa Learn</span>
-                <span className="text-xs text-gray-500">Scan to join!</span>
+                <span className="text-xs text-gray-500">扫码加入！</span>
               </div>
             </div>
             <div className="w-16 h-16 bg-white p-1 rounded-lg border border-gray-200">
