@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 export default function PointsShop() {
   return (
@@ -6,9 +7,9 @@ export default function PointsShop() {
       <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
         {/* Header */}
         <div className="sticky top-0 z-50 flex items-center bg-white dark:bg-[#121212] p-4 pb-3 justify-between border-b-2 border-gray-100 dark:border-white/10">
-          <div className="text-slate-900 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 cursor-pointer transition-colors active:scale-95">
+          <Link href="/" className="text-slate-900 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 cursor-pointer transition-colors active:scale-95">
             <span className="material-symbols-outlined text-2xl">arrow_back</span>
-          </div>
+          </Link>
           <h2 className="text-slate-900 dark:text-white text-lg font-black leading-tight tracking-tight flex-1 text-center uppercase">
             Shop
           </h2>
@@ -43,15 +44,18 @@ export default function PointsShop() {
           </div>
 
           {/* Balance Display */}
-          <div className="flex flex-col items-center justify-center py-2 bg-s3-surface dark:bg-white/5 rounded-2xl border-2 border-transparent">
-            <div className="bg-s3-primary/10 dark:bg-s3-primary/30 px-4 py-1.5 rounded-lg mb-2">
-              <p className="text-xs font-black text-s3-primary uppercase tracking-widest">Your Balance</p>
+          <Link href="/points" className="flex flex-col items-center justify-center py-4 bg-s3-surface dark:bg-white/5 rounded-2xl border-2 border-transparent hover:border-s3-primary/30 transition-all cursor-pointer group">
+            <div className="bg-s3-primary/10 dark:bg-s3-primary/30 px-4 py-1.5 rounded-lg mb-2 group-hover:bg-s3-primary group-hover:text-white transition-colors">
+              <p className="text-xs font-black uppercase tracking-widest">Your Balance</p>
             </div>
             <div className="flex items-center gap-2 text-slate-900 dark:text-white">
-              <span className="material-symbols-outlined text-4xl text-yellow-400">monetization_on</span>
+              <span className="material-symbols-outlined text-4xl text-yellow-400 group-hover:scale-110 transition-transform">monetization_on</span>
               <h2 className="tracking-tight text-5xl font-black leading-tight">1,540</h2>
             </div>
-          </div>
+            <div className="mt-2 text-xs font-bold text-s3-primary flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+              View Points Dashboard <span className="material-symbols-outlined text-xs">arrow_forward</span>
+            </div>
+          </Link>
 
           {/* Filter Tabs */}
           <div className="flex gap-3 overflow-x-auto no-scrollbar pb-2">
@@ -90,9 +94,9 @@ export default function PointsShop() {
                     <span className="text-xs font-black bg-s3-primary/10 px-2 py-1 rounded text-s3-primary">500 PTS</span>
                   </div>
                 </div>
-                <button className="w-full h-10 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-extrabold hover:bg-slate-700 transition-colors flex items-center justify-center active:scale-95">
+                <Link href="/shop/success" className="w-full h-10 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-extrabold hover:bg-slate-700 transition-colors flex items-center justify-center active:scale-95">
                   Redeem
-                </button>
+                </Link>
               </div>
               <div className="group flex flex-col gap-3 p-3 bg-white dark:bg-white/5 rounded-2xl border-2 border-gray-100 dark:border-white/10 hover:border-s3-primary/50 transition-colors">
                 <div className="aspect-[4/5] w-full rounded-xl overflow-hidden relative bg-[#B3E5FC] flex items-center justify-center border-2 border-transparent">
@@ -106,9 +110,9 @@ export default function PointsShop() {
                     <span className="text-xs font-black bg-s3-primary/10 px-2 py-1 rounded text-s3-primary">750 PTS</span>
                   </div>
                 </div>
-                <button className="w-full h-10 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-extrabold hover:bg-slate-700 transition-colors flex items-center justify-center active:scale-95">
+                <Link href="/shop/success" className="w-full h-10 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm font-extrabold hover:bg-slate-700 transition-colors flex items-center justify-center active:scale-95">
                   Redeem
-                </button>
+                </Link>
               </div>
             </div>
           </div>

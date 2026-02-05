@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 export default function Profile() {
   return (
@@ -102,7 +103,21 @@ export default function Profile() {
         {/* Settings */}
         <h3 className="text-lg font-black text-s5-flat-black px-1 mb-3">Settings</h3>
         <div className="grid grid-cols-2 gap-3 mb-5">
-          <div className="bento-card col-span-2 bg-s5-flat-purple p-4 shadow-hard flex items-center justify-between">
+          <Link href="/trophy-room" className="bento-card col-span-2 bg-s5-flat-purple p-4 shadow-hard flex items-center justify-between hover:scale-[1.02] transition-transform">
+            <div className="flex items-center gap-4">
+              <div className="size-12 rounded-xl border-[3px] border-s5-flat-black bg-[#FFD700] flex items-center justify-center text-s5-flat-black">
+                <span className="material-symbols-outlined font-bold">emoji_events</span>
+              </div>
+              <div>
+                <p className="font-black text-s5-flat-black leading-tight text-lg">Trophy Room</p>
+                <p className="text-xs text-s5-flat-black font-bold opacity-70">View Achievements</p>
+              </div>
+            </div>
+            <div className="size-10 rounded-full border-[3px] border-s5-flat-black bg-white flex items-center justify-center">
+              <span className="material-symbols-outlined text-[20px] font-bold">chevron_right</span>
+            </div>
+          </Link>
+          <div className="bento-card col-span-2 bg-white p-4 shadow-hard flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="size-12 rounded-xl border-[3px] border-s5-flat-black bg-white flex items-center justify-center text-s5-flat-black">
                 <span className="material-symbols-outlined">psychology</span>
