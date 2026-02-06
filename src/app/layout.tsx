@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito, Plus_Jakarta_Sans, M_PLUS_Rounded_1c, Noto_Sans } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
+import BottomNav from "@/components/BottomNav";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -45,33 +45,9 @@ export default function RootLayout({
       <body
         className={`${nunito.variable} ${plusJakartaSans.variable} ${mPlusRounded1c.variable} ${notoSans.variable} antialiased`}
       >
-        <nav className="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-md border-t border-gray-200 z-[100] flex justify-around py-2 px-4 shadow-lg">
-          <Link href="/" className="flex flex-col items-center gap-1 text-xs font-bold text-gray-600 hover:text-s1-flat-blue transition-colors">
-            <span className="material-symbols-outlined">home</span>
-            <span>Home</span>
-          </Link>
-          <Link href="/prompts" className="flex flex-col items-center gap-1 text-xs font-bold text-gray-600 hover:text-s2-primary transition-colors">
-            <span className="material-symbols-outlined">description</span>
-            <span>Prompts</span>
-          </Link>
-          <Link href="/shop" className="flex flex-col items-center gap-1 text-xs font-bold text-gray-600 hover:text-s3-primary transition-colors">
-            <span className="material-symbols-outlined">shopping_bag</span>
-            <span>Shop</span>
-          </Link>
-          <Link href="/notes/neural-networks" className="flex flex-col items-center gap-1 text-xs font-bold text-gray-600 hover:text-s4-flat-primary transition-colors">
-            <span className="material-symbols-outlined">book</span>
-            <span>Notes</span>
-          </Link>
-          <Link href="/profile" className="flex flex-col items-center gap-1 text-xs font-bold text-gray-600 hover:text-s5-accent-blue transition-colors">
-            <span className="material-symbols-outlined">person</span>
-            <span>Profile</span>
-          </Link>
-          <Link href="/projects" className="flex flex-col items-center gap-1 text-xs font-bold text-gray-600 hover:text-s6-primary transition-colors">
-            <span className="material-symbols-outlined">assignment</span>
-            <span>Projects</span>
-          </Link>
-        </nav>
-        <div className="pb-16">
+        <BottomNav />
+
+        <div className="pb-24">
           {children}
         </div>
       </body>

@@ -69,6 +69,30 @@
   --color-s6-accent-yellow: #FBBF24;
   --color-s6-border-dark: #1E293B;
 
+  /* Starry Night Theme */
+  --color-starry-bg: #0B1026;
+  --color-starry-accent: #FFD700;
+  --color-starry-soft: #2D3455;
+  --color-starry-gradient-end: #1a2342;
+
+  /* Forest Adventure Theme */
+  --color-forest-green: #2E7D32;
+  --color-earth-brown: #5D4037;
+  --color-sky-blue: #E1F5FE;
+  --color-leafy-green: #4ADE80;
+  --color-forest-pattern: #15803d;
+  --color-forest-accent-1: #22c55e;
+  --color-forest-accent-2: #86efac;
+
+  /* Login & Signup */
+  --color-login-primary: #FF6B6B;
+  --color-login-bg: #FFF9C4;
+  --color-login-accent: #4ECDC4;
+  --color-login-text-dark: #2D3436;
+  --color-signup-primary: #25f46a;
+  --color-signup-bg: #f5f8f6;
+  --color-signup-text-muted: #608a6e;
+
   /* Animations */
   @keyframes float {
     0%, 100% { transform: translateY(0); }
@@ -204,5 +228,30 @@
   }
   .bold-checkbox:checked::before {
     @apply scale-100;
+  }
+
+  .flat-input {
+    border: 2px solid #2D3436 !important;
+    box-shadow: none !important;
+    border-radius: 1rem !important;
+  }
+  .flat-btn-login {
+    border: 2px solid #2D3436;
+    box-shadow: 4px 4px 0px #2D3436;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+  .flat-btn-login:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #2D3436;
+  }
+  .bg-stars {
+    background-image: radial-gradient(#FFD700 15%, transparent 16%), radial-gradient(#FFD700 15%, transparent 16%);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    opacity: 0.4;
+  }
+  .custom-checkbox:checked {
+    background-color: var(--color-signup-primary);
+    border-color: var(--color-signup-primary);
   }
 }
