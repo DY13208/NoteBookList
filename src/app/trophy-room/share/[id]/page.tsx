@@ -9,8 +9,8 @@ export default function AchievementShareCard() {
   const id = params.id as string;
 
   // Determine theme based on ID
-  const isStarry = id === 'starry';
-  const isForest = id === 'forest';
+  const isStarry = id === 'starry' || id === 'note-master';
+  const isForest = id === 'forest' || id === 'project-finisher';
 
   if (isStarry) {
     return (

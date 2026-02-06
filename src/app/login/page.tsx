@@ -70,7 +70,10 @@ export default function LoginPage() {
         </div>
 
         {/* Login Button */}
-        <button className="flat-btn-login flex w-full items-center justify-center bg-login-primary h-14 rounded-xl text-white text-lg font-bold tracking-wide mt-2 hover:brightness-105 active:brightness-95 transition-all">
+        <button
+          onClick={() => router.push('/')}
+          className="flat-btn-login flex w-full items-center justify-center bg-login-primary h-14 rounded-xl text-white text-lg font-bold tracking-wide mt-2 hover:brightness-105 active:brightness-95 transition-all"
+        >
           登录
         </button>
 

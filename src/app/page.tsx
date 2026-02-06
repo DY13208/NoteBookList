@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 export default function Workbench() {
   return (
@@ -139,21 +140,21 @@ export default function Workbench() {
       <div className="px-6 py-6">
         <h3 className="font-rounded text-s1-text-main text-lg font-black mb-4">Quick Capture</h3>
         <div className="grid grid-cols-3 gap-3">
-          <button className="group relative flex flex-col items-center justify-center gap-2 bg-s1-flat-blue rounded-2xl py-5 active:scale-95 transition-all overflow-hidden">
+          <Link href="/notes" className="group relative flex flex-col items-center justify-center gap-2 bg-s1-flat-blue rounded-2xl py-5 active:scale-95 transition-all overflow-hidden">
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="material-symbols-outlined text-white text-[28px]">document_scanner</span>
             <span className="text-xs font-black text-white uppercase">Scan</span>
-          </button>
-          <button className="group relative flex flex-col items-center justify-center gap-2 bg-s1-flat-pink rounded-2xl py-5 active:scale-95 transition-all overflow-hidden">
+          </Link>
+          <Link href="/notes" className="group relative flex flex-col items-center justify-center gap-2 bg-s1-flat-pink rounded-2xl py-5 active:scale-95 transition-all overflow-hidden">
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="material-symbols-outlined text-white text-[28px]">mic</span>
             <span className="text-xs font-black text-white uppercase">Voice</span>
-          </button>
-          <button className="group relative flex flex-col items-center justify-center gap-2 bg-s1-flat-mint rounded-2xl py-5 active:scale-95 transition-all overflow-hidden">
+          </Link>
+          <Link href="/notes" className="group relative flex flex-col items-center justify-center gap-2 bg-s1-flat-mint rounded-2xl py-5 active:scale-95 transition-all overflow-hidden">
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="material-symbols-outlined text-white text-[28px]">edit_note</span>
             <span className="text-xs font-black text-white uppercase">Note</span>
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -177,7 +178,7 @@ export default function Workbench() {
           </div>
         </div>
         <div className="flex flex-col gap-3">
-          <div className="group flex items-center gap-4 bg-s1-surface rounded-2xl p-3 pr-4 cursor-pointer hover:bg-gray-100 transition-colors">
+          <Link href="/notes" className="group flex items-center gap-4 bg-s1-surface rounded-2xl p-3 pr-4 cursor-pointer hover:bg-gray-100 transition-colors">
             <div className="h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-white relative">
               <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -194,11 +195,11 @@ export default function Workbench() {
                 <span className="text-xs text-s1-text-sub font-bold">2h ago</span>
               </div>
             </div>
-            <button className="size-8 flex items-center justify-center rounded-lg text-s1-text-sub hover:bg-white hover:text-s1-text-main transition-all">
+            <div className="size-8 flex items-center justify-center rounded-lg text-s1-text-sub hover:bg-white hover:text-s1-text-main transition-all">
               <span className="material-symbols-outlined text-[20px]">more_vert</span>
-            </button>
-          </div>
-          <div className="group flex items-center gap-4 bg-s1-surface rounded-2xl p-3 pr-4 cursor-pointer hover:bg-gray-100 transition-colors">
+            </div>
+          </Link>
+          <Link href="/notes" className="group flex items-center gap-4 bg-s1-surface rounded-2xl p-3 pr-4 cursor-pointer hover:bg-gray-100 transition-colors">
             <div className="h-16 w-16 shrink-0 flex items-center justify-center rounded-xl bg-s1-flat-mint text-white">
               <span className="material-symbols-outlined text-[32px]">folder_open</span>
             </div>
@@ -209,11 +210,11 @@ export default function Workbench() {
                 <span className="text-xs text-s1-text-sub font-bold">Yesterday</span>
               </div>
             </div>
-            <button className="size-8 flex items-center justify-center rounded-lg text-s1-text-sub hover:bg-white hover:text-s1-text-main transition-all">
+            <div className="size-8 flex items-center justify-center rounded-lg text-s1-text-sub hover:bg-white hover:text-s1-text-main transition-all">
               <span className="material-symbols-outlined text-[20px]">more_vert</span>
-            </button>
-          </div>
-          <div className="group flex items-center gap-4 bg-s1-surface rounded-2xl p-3 pr-4 cursor-pointer hover:bg-gray-100 transition-colors">
+            </div>
+          </Link>
+          <Link href="/notes" className="group flex items-center gap-4 bg-s1-surface rounded-2xl p-3 pr-4 cursor-pointer hover:bg-gray-100 transition-colors">
             <div className="h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-white relative">
               <div
                 className="absolute inset-0 bg-cover bg-center"
@@ -230,10 +231,10 @@ export default function Workbench() {
                 <span className="text-xs text-s1-text-sub font-bold">30% Done</span>
               </div>
             </div>
-            <button className="size-8 flex items-center justify-center rounded-lg text-s1-text-sub hover:bg-white hover:text-s1-text-main transition-all">
+            <div className="size-8 flex items-center justify-center rounded-lg text-s1-text-sub hover:bg-white hover:text-s1-text-main transition-all">
               <span className="material-symbols-outlined text-[20px]">more_vert</span>
-            </button>
-          </div>
+            </div>
+          </Link>
         </div>
       </div>
 

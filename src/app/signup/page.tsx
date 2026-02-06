@@ -92,7 +92,11 @@ export default function SignUpPage() {
           </div>
 
           {/* Submit Button */}
-          <button className="mt-4 w-full h-14 rounded-xl bg-signup-primary hover:bg-signup-primary/90 text-text-main font-extrabold text-lg tracking-wide transition-all active:scale-[0.98] shadow-sm flex items-center justify-center gap-2" type="submit">
+          <button
+            onClick={() => router.push('/')}
+            className="mt-4 w-full h-14 rounded-xl bg-signup-primary hover:bg-signup-primary/90 text-text-main font-extrabold text-lg tracking-wide transition-all active:scale-[0.98] shadow-sm flex items-center justify-center gap-2"
+            type="submit"
+          >
             <span>加入冒险</span>
             <span className="material-symbols-outlined font-bold">arrow_forward</span>
           </button>
