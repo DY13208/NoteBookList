@@ -13,7 +13,7 @@ export default function BottomNav() {
 
   const navItems = [
     { href: "/", label: "首页", icon: "home" },
-    { href: "/notes", label: "笔记", icon: "school" },
+    { href: "/notes", label: "笔记", icon: "description" },
     { href: "/trophy-room", label: "勋章", icon: "emoji_events" },
     { href: "/profile", label: "我的", icon: "person" },
   ];
