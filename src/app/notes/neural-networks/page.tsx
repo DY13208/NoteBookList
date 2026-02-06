@@ -1,13 +1,21 @@
 import React from 'react';
+import Link from 'next/link';
+import AIActionBar from '../../../components/AIActionBar';
 
 export default function AINotebook() {
+  const sourceText =
+    "Neural networks are a series of algorithms that recognize relationships in data. The simplest form is the Perceptron, a single neuron model with weights and bias.";
+
   return (
     <div className="text-s4-flat-text antialiased overflow-hidden h-screen flex flex-col font-sans bg-s4-flat-bg selection:bg-s4-flat-primary/20 selection:text-s4-flat-primary">
       {/* Header */}
       <div className="flex-none flex items-center px-6 py-4 justify-between z-20 sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-        <button className="size-10 shrink-0 flex items-center justify-center rounded-lg bg-gray-50 text-s4-flat-text hover:bg-gray-100 transition-colors">
+        <Link
+          href="/notes"
+          className="size-10 shrink-0 flex items-center justify-center rounded-lg bg-gray-50 text-s4-flat-text hover:bg-gray-100 transition-colors"
+        >
           <span className="material-symbols-outlined">arrow_back</span>
-        </button>
+        </Link>
         <div className="flex flex-col items-center">
           <h2 className="text-s4-flat-text text-lg font-bold tracking-tight font-display">My Notebook</h2>
           <div className="flex items-center gap-1.5 mt-0.5">
@@ -20,7 +28,7 @@ export default function AINotebook() {
         </button>
       </div>
 
-      <main className="flex-1 overflow-y-auto w-full relative pb-56 scroll-smooth">
+      <main className="flex-1 overflow-y-auto w-full relative pb-[calc(14rem+var(--bottom-nav-space))] scroll-smooth">
         <div className="px-6 pt-6 pb-2 max-w-2xl mx-auto">
           {/* Title and Tags */}
           <div className="flex flex-col gap-2 mb-8 relative">
@@ -109,34 +117,7 @@ export default function AINotebook() {
         </div>
       </main>
 
-      {/* AI Action Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 pb-safe transition-all duration-300 bg-white border-t border-gray-200">
-        <div className="w-full max-w-md mx-auto pt-4 pb-6 px-6">
-          <div className="flex justify-between items-end mb-4">
-            <h3 className="text-sm font-bold text-s4-flat-text-light uppercase tracking-wider">AI Actions</h3>
-          </div>
-          <div className="grid grid-cols-3 gap-4">
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-primary hover:bg-indigo-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">segment</span>
-              </div>
-              <span className="text-xs font-bold text-s4-flat-text">Summarize</span>
-            </button>
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-accent hover:bg-rose-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">lightbulb</span>
-              </div>
-              <span className="text-xs font-bold text-s4-flat-text">Extract</span>
-            </button>
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-yellow hover:bg-amber-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">quiz</span>
-              </div>
-              <span className="text-xs font-bold text-s4-flat-text">Quiz Me</span>
-            </button>
-          </div>
-        </div>
-      </div>
+      <AIActionBar sourceText={sourceText} />
     </div>
   );
 }

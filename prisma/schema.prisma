@@ -1,0 +1,290 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String            @id @default(cuid())
+  name           String
+  username       String            @unique
+  email          String?           @unique
+  phone          String?           @unique
+  passwordHash   String
+  avatarUrl      String?
+  level          Int               @default(1)
+  pointsBalance  Int               @default(0)
+  settings       Json?
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+
+  aiConfig        AiConfig?
+  refreshTokens  RefreshToken[]
+  noteFolders    NoteFolder[]
+  notes          Note[]
+  prompts        Prompt[]
+  projects       Project[]
+  items          Item[]
+  moods          Mood[]
+  notifications  Notification[]
+  pointStates    PointTaskState[]
+  transactions   PointTransaction[]
+  redemptions    Redemption[]
+  achievements   UserAchievement[]
+  shares         AchievementShare[]
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  userId    String
+  tokenHash String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId])
+}
+
+model AiConfig {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  provider  String
+  model     String
+  apiKeyEnc String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model NoteFolder {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String
+  color     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user  User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  notes Note[]
+  @@index([userId])
+}
+
+model Note {
+  id            String   @id @default(cuid())
+  userId        String
+  folderId      String?
+  title         String
+  subtitle      String?
+  coverImageUrl String?
+  content       Json
+  tags          String[]
+  summary       String?
+  bookmarked    Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  user   User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  folder NoteFolder? @relation(fields: [folderId], references: [id], onDelete: SetNull)
+  @@index([userId])
+  @@index([folderId])
+}
+
+model Prompt {
+  id         String   @id @default(cuid())
+  userId     String
+  title      String
+  category   String?
+  content    String
+  tags       String[]
+  favorite   Boolean  @default(false)
+  usageCount Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId])
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  userId      String
+  title       String
+  description String?
+  status      String   @default("active")
+  progress    Int      @default(0)
+  dueAt       DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tasks     ProjectTask[]
+  resources ProjectResource[]
+  @@index([userId])
+}
+
+model ProjectTask {
+  id        String   @id @default(cuid())
+  projectId String
+  title     String
+  status    String   @default("todo")
+  dueAt     DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  @@index([projectId])
+}
+
+model ProjectResource {
+  id        String   @id @default(cuid())
+  projectId String
+  title     String
+  type      String?
+  url       String
+  createdAt DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  @@index([projectId])
+}
+
+model Item {
+  id          String   @id @default(cuid())
+  userId      String
+  name        String
+  description String?
+  tags        String[]
+  imageUrl    String?
+  category    String?
+  owned       Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId])
+}
+
+model PointTask {
+  id        String   @id @default(cuid())
+  title     String   @unique
+  reward    Int
+  kind      String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  states PointTaskState[]
+}
+
+model PointTaskState {
+  id        String   @id @default(cuid())
+  userId    String
+  taskId    String
+  status    String   @default("todo")
+  progress  Int      @default(0)
+  updatedAt DateTime @updatedAt
+
+  user User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  task PointTask @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  @@unique([userId, taskId])
+  @@index([userId])
+}
+
+model PointTransaction {
+  id        String   @id @default(cuid())
+  userId    String
+  amount    Int
+  type      String
+  meta      Json?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId])
+}
+
+model ShopItem {
+  id          String   @id @default(cuid())
+  title       String   @unique
+  description String?
+  price       Int
+  imageUrl    String?
+  category    String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  redemptions Redemption[]
+}
+
+model Redemption {
+  id        String   @id @default(cuid())
+  userId    String
+  itemId    String
+  status    String   @default("success")
+  createdAt DateTime @default(now())
+
+  user User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  item ShopItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  @@index([userId])
+  @@index([itemId])
+}
+
+model Achievement {
+  id        String   @id @default(cuid())
+  title     String   @unique
+  desc      String
+  rarity    String
+  imageUrl  String
+  createdAt DateTime @default(now())
+
+  users UserAchievement[]
+  shares AchievementShare[]
+}
+
+model UserAchievement {
+  id            String   @id @default(cuid())
+  userId        String
+  achievementId String
+  unlocked      Boolean  @default(false)
+  progress      Int      @default(0)
+  unlockedAt    DateTime?
+
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievement Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+  @@unique([userId, achievementId])
+  @@index([userId])
+}
+
+model AchievementShare {
+  id            String   @id @default(cuid())
+  userId        String
+  achievementId String
+  createdAt     DateTime @default(now())
+
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievement Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+  @@index([userId])
+}
+
+model Mood {
+  id        String   @id @default(cuid())
+  userId    String
+  mood      String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  body      String?
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId])
+}
