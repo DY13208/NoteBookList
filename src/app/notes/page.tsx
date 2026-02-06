@@ -1,10 +1,11 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function KnowledgeBasePage() {
   const router = useRouter();
+  const [isAiExpanded, setIsAiExpanded] = useState(false);
 
   return (
     <div className="bg-background-light dark:bg-background-dark text-s1-text-main dark:text-white font-jakarta overflow-x-hidden antialiased selection:bg-s1-flat-mint selection:text-black min-h-screen pb-24">
@@ -192,21 +193,42 @@ export default function KnowledgeBasePage() {
           </section>
         </main>
 
-        {/* Floating Hachiware Illustration */}
-        <div className="fixed bottom-24 right-4 z-30 pointer-events-none">
-          <div className="w-32 h-32 relative animate-sticker-bounce">
-            <div className="absolute bottom-0 right-0 w-28 h-28 bg-white dark:bg-gray-200 border-[3px] border-black rounded-full overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        {/* Floating AI Actions */}
+        <div className="fixed bottom-32 right-6 z-50 flex flex-col items-end gap-3">
+          {/* Expanded Actions */}
+          <div className={`flex flex-col gap-3 transition-all duration-300 origin-bottom ${isAiExpanded ? 'scale-100 opacity-100 mb-2' : 'scale-0 opacity-0 h-0 pointer-events-none'}`}>
+            <button className="flex items-center gap-2 bg-s3-accent text-black font-bold px-4 py-2 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none transition-all">
+              <span className="material-symbols-outlined">auto_awesome</span>
+              <span>AI 摘要</span>
+            </button>
+            <button className="flex items-center gap-2 bg-s4-chiikawa-pink text-black font-bold px-4 py-2 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none transition-all">
+              <span className="material-symbols-outlined">edit_note</span>
+              <span>新建笔记</span>
+            </button>
+          </div>
+
+          {/* Main Toggle Button (Hachiware) */}
+          <button
+            onClick={() => setIsAiExpanded(!isAiExpanded)}
+            className="w-24 h-24 relative group active:scale-95 transition-transform"
+          >
+            <div className={`absolute -top-2 right-12 bg-white border-2 border-black px-3 py-1 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-opacity ${isAiExpanded ? 'opacity-0' : 'opacity-100'}`}>
+              <p className="text-xs font-bold text-black whitespace-nowrap">需要帮助？✨</p>
+            </div>
+            <div className="w-full h-full bg-white dark:bg-gray-200 border-[3px] border-black rounded-full overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
               <img
                 alt="Cute flat illustration of Hachiware cat holding a folder"
                 className="w-full h-full object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcw4VZKTbRArMhvd7foS1DnZYK33ZqkICZdWKbGdNiY919X7Qjpmur5cyXF2ptZ_ixQPnp6Qp4GZdDvEqVjAAVbhxG9QYg7hIPMim5mm0pj6JwrSPdUd7cmBtwQf9fHaZj5kgk9fwvW4-PrcAv4LHODDYhw2Hv689r4LRHj4-lcIfEnl4EXRnZyxc5Q70rgFeLPJc47lQMIlZTkIy2HKpc-Qwu4rXmhRhg0j_K3NkIIAHGVzDVpfsfNVvUbDUdANxqOqFHd1q9bX8"
               />
             </div>
-            {/* Speech Bubble */}
-            <div className="absolute -top-2 right-16 bg-white border-2 border-black px-3 py-1 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-              <p className="text-xs font-bold text-black whitespace-nowrap">继续学习！✨</p>
-            </div>
-          </div>
+            {/* Close icon when expanded */}
+            {isAiExpanded && (
+              <div className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full p-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] animate-pop-up-bounce">
+                <span className="material-symbols-outlined text-sm font-bold">close</span>
+              </div>
+            )}
+          </button>
         </div>
       </div>
     </div>
