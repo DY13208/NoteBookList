@@ -135,7 +135,7 @@ export default function Workbench() {
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/20">
               <span className="material-symbols-outlined text-white text-[18px]">auto_awesome</span>
               <span className="text-xs font-black font-rounded text-white uppercase tracking-wide">
-                {weekly?.title || "Weekly Insight"}
+                {weekly?.title || "每周洞察"}
               </span>
             </div>
             <div className="absolute -top-12 -right-2 z-20 animate-float">
@@ -143,7 +143,7 @@ export default function Workbench() {
                 <div className="bg-white px-3 py-1 rounded-lg border-2 border-s1-text-main mb-1">
                   <span className="text-xs font-black text-s1-text-main">YAH!!</span>
                 </div>
-                <div className="text-[72px] leading-none filter drop-shadow-none grayscale-0">??</div>
+                <div className="text-[72px] leading-none filter drop-shadow-none grayscale-0">📊</div>
               </div>
             </div>
           </div>
@@ -161,14 +161,14 @@ export default function Workbench() {
               ></div>
             </div>
             <p className="text-sm text-s1-text-main font-bold leading-relaxed mb-6 font-rounded opacity-90 pr-4">
-              {weekly?.description || "Keep the streak going!"}
+              {weekly?.description || "保持连续学习！"}
             </p>
             <div className="flex gap-3">
               <Link
                 href="/points"
                 className="flex-1 rounded-xl bg-white py-3 text-sm font-black text-s1-text-main border-b-4 border-gray-200 active:border-b-0 active:translate-y-1 hover:bg-gray-50 transition-all text-center"
               >
-                View Report
+                查看报告
               </Link>
             </div>
           </div>
@@ -178,25 +178,25 @@ export default function Workbench() {
       <div className="px-6 mb-4">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <div className="size-10 bg-s1-surface rounded-xl flex items-center justify-center text-2xl">??</div>
+            <div className="size-10 bg-s1-surface rounded-xl flex items-center justify-center text-2xl">🎯</div>
             <div>
-              <h3 className="font-rounded text-s1-text-main text-xl font-black leading-none">Today&apos;s Focus</h3>
-              <span className="text-xs font-bold text-s1-text-sub">Chiikawa is studying...</span>
+              <h3 className="font-rounded text-s1-text-main text-xl font-black leading-none">今日焦点</h3>
+              <span className="text-xs font-bold text-s1-text-sub">Chiikawa 正在学习...</span>
             </div>
           </div>
           <Link
             href="/projects"
             className="text-xs font-black text-s1-flat-blue uppercase bg-s1-flat-blue/10 px-3 py-1.5 rounded-lg hover:bg-s1-flat-blue hover:text-white transition-colors"
           >
-            See All
+            查看全部
           </Link>
         </div>
         <div className="flex flex-col gap-3">
           {loading && (
-            <div className="rounded-2xl bg-s1-surface p-4 text-sm font-bold text-s1-text-sub">???...</div>
+            <div className="rounded-2xl bg-s1-surface p-4 text-sm font-bold text-s1-text-sub">加载中...</div>
           )}
           {!loading && focusTasks.length === 0 && (
-            <div className="rounded-2xl bg-s1-surface p-4 text-sm font-bold text-s1-text-sub">????</div>
+            <div className="rounded-2xl bg-s1-surface p-4 text-sm font-bold text-s1-text-sub">暂无任务</div>
           )}
           {focusTasks.map((task, idx) => {
             const style = focusStyles[idx % focusStyles.length];
@@ -223,7 +223,7 @@ export default function Workbench() {
                         {style.icon}
                       </span>
                       <span className={`text-xs ${style.accent} font-extrabold`}>
-                        {task.due_at ? `?? ${new Date(task.due_at).toLocaleDateString()}` : "????"}
+                        {task.due_at ? `截止 ${new Date(task.due_at).toLocaleDateString()}` : "无截止日期"}
                       </span>
                     </div>
                   </div>
@@ -235,7 +235,7 @@ export default function Workbench() {
       </div>
 
       <div className="px-6 py-6">
-        <h3 className="font-rounded text-s1-text-main text-lg font-black mb-4">Quick Capture</h3>
+        <h3 className="font-rounded text-s1-text-main text-lg font-black mb-4">快速记录</h3>
         <div className="grid grid-cols-3 gap-3">
           <Link
             href="/notes"
@@ -243,7 +243,7 @@ export default function Workbench() {
           >
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="material-symbols-outlined text-white text-[28px]">document_scanner</span>
-            <span className="text-xs font-black text-white uppercase">Scan</span>
+            <span className="text-xs font-black text-white uppercase">扫描</span>
           </Link>
           <Link
             href="/prompts"
@@ -251,7 +251,7 @@ export default function Workbench() {
           >
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="material-symbols-outlined text-white text-[28px]">mic</span>
-            <span className="text-xs font-black text-white uppercase">Voice</span>
+            <span className="text-xs font-black text-white uppercase">语音</span>
           </Link>
           <Link
             href="/notes"
@@ -259,7 +259,7 @@ export default function Workbench() {
           >
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="material-symbols-outlined text-white text-[28px]">edit_note</span>
-            <span className="text-xs font-black text-white uppercase">Note</span>
+            <span className="text-xs font-black text-white uppercase">笔记</span>
           </Link>
         </div>
       </div>
@@ -267,10 +267,10 @@ export default function Workbench() {
       <div className="px-6 pb-24">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <div className="size-10 bg-s1-surface rounded-xl flex items-center justify-center text-2xl">??</div>
+            <div className="size-10 bg-s1-surface rounded-xl flex items-center justify-center text-2xl">📝</div>
             <div>
-              <h3 className="font-rounded text-s1-text-main text-xl font-black leading-none">Recent Notes</h3>
-              <span className="text-xs font-bold text-s1-text-sub">Hachiware is smiling!</span>
+              <h3 className="font-rounded text-s1-text-main text-xl font-black leading-none">最近笔记</h3>
+              <span className="text-xs font-bold text-s1-text-sub">Hachiware 在微笑！</span>
             </div>
           </div>
           <div className="flex gap-1 bg-s1-surface p-1 rounded-lg">
@@ -284,7 +284,7 @@ export default function Workbench() {
         </div>
         <div className="flex flex-col gap-3">
           {recentNotes.length === 0 && !loading && (
-            <div className="rounded-2xl bg-s1-surface p-4 text-sm font-bold text-s1-text-sub">????</div>
+            <div className="rounded-2xl bg-s1-surface p-4 text-sm font-bold text-s1-text-sub">暂无笔记</div>
           )}
           {recentNotes.map((note) => (
             <Link
@@ -306,7 +306,7 @@ export default function Workbench() {
                 <div className="flex items-center gap-2 mt-1">
                   <span className="rounded px-1.5 py-0.5 text-[10px] font-black text-white bg-s1-flat-blue uppercase">Note</span>
                   <span className="text-xs text-s1-text-sub font-bold">
-                    {note.updated_at ? new Date(note.updated_at).toLocaleDateString() : "??"}
+                    {note.updated_at ? new Date(note.updated_at).toLocaleDateString() : "未知"}
                   </span>
                 </div>
               </div>
@@ -341,7 +341,7 @@ export default function Workbench() {
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div>
                   <p className="text-xs font-black uppercase tracking-[0.3em] text-s1-text-sub">Create</p>
-                  <h3 className="text-xl font-black text-s1-text-main">????</h3>
+                  <h3 className="text-xl font-black text-s1-text-main">创建新内容</h3>
                 </div>
                 <button
                   type="button"
@@ -361,8 +361,8 @@ export default function Workbench() {
                     <span className="material-symbols-outlined text-[24px]">menu_book</span>
                   </div>
                   <div className="flex-1">
-                    <p className="text-base font-black text-s1-text-main">????</p>
-                    <p className="text-xs font-bold text-s1-text-sub">???????</p>
+                    <p className="text-base font-black text-s1-text-main">新建笔记</p>
+                    <p className="text-xs font-bold text-s1-text-sub">记录想法</p>
                   </div>
                   <span className="material-symbols-outlined text-s1-text-sub">chevron_right</span>
                 </Link>
@@ -375,8 +375,8 @@ export default function Workbench() {
                     <span className="material-symbols-outlined text-[24px]">local_mall</span>
                   </div>
                   <div className="flex-1">
-                    <p className="text-base font-black text-s1-text-main">????</p>
-                    <p className="text-xs font-bold text-s1-text-sub">???????</p>
+                    <p className="text-base font-black text-s1-text-main">新建项目</p>
+                    <p className="text-xs font-bold text-s1-text-sub">管理任务</p>
                   </div>
                   <span className="material-symbols-outlined text-s1-text-sub">chevron_right</span>
                 </Link>
@@ -389,8 +389,8 @@ export default function Workbench() {
                     <span className="material-symbols-outlined text-[24px]">dashboard_customize</span>
                   </div>
                   <div className="flex-1">
-                    <p className="text-base font-black text-s1-text-main">????</p>
-                    <p className="text-xs font-bold text-s1-text-sub">???????</p>
+                    <p className="text-base font-black text-s1-text-main">新建任务</p>
+                    <p className="text-xs font-bold text-s1-text-sub">追踪进度</p>
                   </div>
                   <span className="material-symbols-outlined text-s1-text-sub">chevron_right</span>
                 </Link>

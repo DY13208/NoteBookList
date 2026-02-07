@@ -63,10 +63,10 @@ export default function NoteDetailPage() {
           <span className="material-symbols-outlined">arrow_back</span>
         </Link>
         <div className="flex flex-col items-center">
-          <h2 className="text-s4-flat-text text-lg font-bold tracking-tight font-display">My Notebook</h2>
+          <h2 className="text-s4-flat-text text-lg font-bold tracking-tight font-display">我的笔记本</h2>
           <div className="flex items-center gap-1.5 mt-0.5">
             <span className="block w-2 h-2 rounded-full bg-green-500"></span>
-            <span className="text-xs font-semibold text-s4-flat-text-light uppercase tracking-wide">Synced</span>
+            <span className="text-xs font-semibold text-s4-flat-text-light uppercase tracking-wide">已同步</span>
           </div>
         </div>
         <button className="size-10 shrink-0 flex items-center justify-center rounded-lg bg-gray-50 text-s4-flat-text hover:bg-gray-100 transition-colors">
@@ -78,12 +78,12 @@ export default function NoteDetailPage() {
         <div className="px-6 pt-6 pb-2 max-w-2xl mx-auto">
           {loading && (
             <div className="rounded-2xl bg-white border border-gray-200 p-6 text-sm font-semibold text-s4-flat-text-light">
-              ???...
+              加载中...
             </div>
           )}
           {!loading && !note && (
             <div className="rounded-2xl bg-white border border-gray-200 p-6 text-sm font-semibold text-rose-500">
-              ?????????
+              笔记不存在
             </div>
           )}
           {note && (
@@ -91,7 +91,7 @@ export default function NoteDetailPage() {
               <div className="flex flex-col gap-2 mb-8 relative">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="px-3 py-1 rounded-md bg-s4-flat-primary/10 text-xs font-bold text-s4-flat-primary tracking-wide uppercase border border-s4-flat-primary/20">
-                    AI Summary
+                    AI 摘要
                   </span>
                   <span className="text-xs font-medium text-s4-flat-text-light flex items-center gap-1">
                     <span className="material-symbols-outlined text-[14px]">schedule</span>
@@ -127,7 +127,7 @@ export default function NoteDetailPage() {
               <div className="bg-white space-y-6 relative">
                 {note.content?.length === 0 && (
                   <div className="rounded-xl bg-s4-flat-surface border border-gray-200 p-5 text-sm text-s4-flat-text-light">
-                    ????
+                    暂无内容
                   </div>
                 )}
                 {note.content?.map((block, idx) => {

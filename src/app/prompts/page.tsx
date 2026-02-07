@@ -37,7 +37,7 @@ export default function PromptManager() {
         setCategories(categoryData || []);
       } catch (err) {
         if (!mounted) return;
-        setStatus(err instanceof Error ? err.message : "????");
+        setStatus(err instanceof Error ? err.message : "加载失败");
       } finally {
         if (mounted) setLoading(false);
       }
@@ -66,7 +66,7 @@ export default function PromptManager() {
       const updated = await apiFetch<PromptItem>(`/prompts/${id}/favorite`, { method: "POST" });
       setPrompts((prev) => prev.map((prompt) => (prompt.id === id ? { ...prompt, favorite: updated.favorite } : prompt)));
     } catch (err) {
-      setStatus(err instanceof Error ? err.message : "????");
+      setStatus(err instanceof Error ? err.message : "操作失败");
     }
   };
 
@@ -94,7 +94,7 @@ export default function PromptManager() {
             </span>
           </Link>
           <h2 className="text-s2-text-main text-xl font-extrabold leading-tight tracking-[-0.015em] flex-1 text-center uppercase">
-            Prompt Manager
+            提示词管理
           </h2>
           <div className="flex w-12 items-center justify-end">
             <button className="flex size-12 cursor-pointer items-center justify-center rounded-full bg-white border-2 border-s2-border-bold shadow-flat-sm active:shadow-flat-active active:translate-x-[2px] active:translate-y-[2px] transition-all">
@@ -111,10 +111,10 @@ export default function PromptManager() {
             <div className="absolute bottom-[-10px] right-[40%] w-16 h-16 bg-s2-primary rounded-full border-2 border-s2-border-bold opacity-50"></div>
             <div className="z-10 relative max-w-[60%]">
               <h1 className="text-s2-text-main text-2xl font-black mb-2 leading-tight">
-                Prompt<br />Collection
+                提示词<br />集合
               </h1>
               <p className="text-s2-text-main font-bold text-sm bg-white border-2 border-s2-border-bold px-3 py-1 rounded-full inline-block shadow-flat-sm">
-                Organized by Hachiware!
+                由 Hachiware 整理！
               </p>
             </div>
             <div className="absolute right-[-10px] bottom-[-20px] w-[160px] h-[160px] z-10">
@@ -138,7 +138,7 @@ export default function PromptManager() {
               </div>
               <input
                 className="flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl border-none bg-transparent px-4 text-base font-bold text-s2-text-main placeholder:text-gray-400 focus:outline-0 focus:ring-0"
-                placeholder="Find a prompt..."
+                placeholder="搜索提示词..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
               />
@@ -166,10 +166,10 @@ export default function PromptManager() {
         <div className="flex items-center justify-between px-4 pt-2 pb-4">
           <div className="flex items-center gap-2">
             <div className="w-3 h-8 bg-s2-secondary border-2 border-s2-border-bold rounded-sm"></div>
-            <h3 className="text-s2-text-main text-xl font-extrabold uppercase">Recent Prompts</h3>
+            <h3 className="text-s2-text-main text-xl font-extrabold uppercase">最近提示词</h3>
           </div>
           <span className="text-s2-text-main text-sm font-bold border-b-2 border-s2-primary cursor-pointer hover:bg-s2-primary/20 transition-colors">
-            View All
+            查看全部
           </span>
         </div>
 
@@ -184,12 +184,12 @@ export default function PromptManager() {
         <div className="flex flex-col gap-6 px-4 pb-32">
           {loading && (
             <div className="rounded-xl bg-white border-2 border-s2-border-bold p-6 text-sm font-bold text-gray-400">
-              ???...
+              加载中...
             </div>
           )}
           {!loading && filtered.length === 0 && (
             <div className="rounded-xl bg-white border-2 border-s2-border-bold p-6 text-sm font-bold text-gray-400">
-              ?? Prompt
+              暂无提示词
             </div>
           )}
           {filtered.map((prompt) => (

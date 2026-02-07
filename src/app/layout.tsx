@@ -16,7 +16,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 const mPlusRounded1c = M_PLUS_Rounded_1c({
   weight: ["400", "500", "700", "800", "900"],
   variable: "--font-rounded",
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext", "cyrillic"],
 });
 
 const notoSans = Noto_Sans({
