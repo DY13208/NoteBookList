@@ -94,9 +94,11 @@ export default function Workbench() {
               <span className="text-xs font-bold text-s1-text-sub">Chiikawa is studying...</span>
             </div>
           </div>
-          <button className="text-xs font-black text-s1-flat-blue uppercase bg-s1-flat-blue/10 px-3 py-1.5 rounded-lg hover:bg-s1-flat-blue hover:text-white transition-colors">
-            See All
-          </button>
+          <Link href="/notes">
+            <button className="text-xs font-black text-s1-flat-blue uppercase bg-s1-flat-blue/10 px-3 py-1.5 rounded-lg hover:bg-s1-flat-blue hover:text-white transition-colors">
+              See All
+            </button>
+          </Link>
         </div>
         <div className="flex flex-col gap-3">
           <label className="group relative bg-s1-surface rounded-2xl p-4 cursor-pointer border-2 border-transparent hover:border-s1-flat-blue transition-all">
