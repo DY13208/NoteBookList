@@ -19,7 +19,7 @@ export default function KnowledgeBasePage() {
             >
               <span className="material-symbols-outlined text-gray-800 dark:text-white">arrow_back</span>
             </button>
-            <h2 className="text-xl font-extrabold tracking-tight flex-1 text-center">知识库</h2>
+            <h2 className="text-xl font-extrabold tracking-tight flex-1 text-center">笔记</h2>
             <div className="flex w-10 items-center justify-end">
               <button className="flex size-10 items-center justify-center rounded-full bg-s1-flat-mint text-black border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] active:translate-y-[2px] active:shadow-none transition-all">
                 <span className="material-symbols-outlined">add</span>
@@ -194,9 +194,9 @@ export default function KnowledgeBasePage() {
         </main>
 
         {/* Floating AI Actions */}
-        <div className="fixed bottom-32 right-6 z-50 flex flex-col items-end gap-3">
+        <div className="fixed bottom-32 right-6 z-[110] flex flex-col items-end gap-3">
           {/* Expanded Actions */}
-          <div className={`flex flex-col gap-3 transition-all duration-300 origin-bottom ${isAiExpanded ? 'scale-100 opacity-100 mb-2' : 'scale-0 opacity-0 h-0 pointer-events-none'}`}>
+          <div className={`flex flex-col gap-3 transition-all duration-300 origin-bottom ${isAiExpanded ? 'max-h-96 opacity-100 mb-2' : 'max-h-0 opacity-0 pointer-events-none overflow-hidden'}`}>
             <button className="flex items-center gap-2 bg-s3-accent text-black font-bold px-4 py-2 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none transition-all">
               <span className="material-symbols-outlined">auto_awesome</span>
               <span>AI 摘要</span>
