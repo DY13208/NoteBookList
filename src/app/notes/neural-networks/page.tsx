@@ -110,7 +110,7 @@ export default function AINotebook() {
       </main>
 
       {/* AI Action Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 pb-safe transition-all duration-300 bg-white border-t border-gray-200">
+      <div className="fixed bottom-[96px] left-0 right-0 z-[110] pb-safe transition-all duration-300 bg-white/95 backdrop-blur-sm border-t-2 border-gray-100 shadow-bold">
         <div className="w-full max-w-md mx-auto pt-4 pb-6 px-6">
           <div className="flex justify-between items-end mb-4">
             <h3 className="text-sm font-bold text-s4-flat-text-light uppercase tracking-wider">AI Actions</h3>
