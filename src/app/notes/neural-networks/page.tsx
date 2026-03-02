@@ -1,6 +1,10 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 
 export default function AINotebook() {
+  const [isAiExpanded, setIsAiExpanded] = useState(true);
+
   return (
     <div className="text-s4-flat-text antialiased overflow-hidden h-screen flex flex-col font-sans bg-s4-flat-bg selection:bg-s4-flat-primary/20 selection:text-s4-flat-primary">
       {/* Header */}
@@ -110,12 +114,24 @@ export default function AINotebook() {
       </main>
 
       {/* AI Action Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 pb-safe transition-all duration-300 bg-white border-t border-gray-200">
-        <div className="w-full max-w-md mx-auto pt-4 pb-6 px-6">
-          <div className="flex justify-between items-end mb-4">
-            <h3 className="text-sm font-bold text-s4-flat-text-light uppercase tracking-wider">AI Actions</h3>
-          </div>
-          <div className="grid grid-cols-3 gap-4">
+      <div className={`fixed bottom-0 left-0 right-0 z-[110] pb-safe transition-all duration-300 bg-white border-t border-gray-200 shadow-[0_-4px_10px_rgba(0,0,0,0.05)]`}>
+        <div className="w-full max-w-md mx-auto pt-2 pb-6 px-6">
+          <button
+            onClick={() => setIsAiExpanded(!isAiExpanded)}
+            className="w-full py-2 flex items-center justify-center group"
+          >
+            <div className="w-12 h-1.5 rounded-full bg-gray-200 group-hover:bg-gray-300 transition-colors"></div>
+          </button>
+
+          <div className={`transition-all duration-500 ease-in-out overflow-hidden ${isAiExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className="flex justify-between items-end mb-4 mt-2">
+              <h3 className="text-sm font-bold text-s4-flat-text-light uppercase tracking-wider flex items-center gap-2">
+                <span className="material-symbols-outlined text-s4-flat-primary text-sm">auto_awesome</span>
+                AI Actions
+              </h3>
+              <span className={`material-symbols-outlined text-gray-400 transition-transform duration-300 ${isAiExpanded ? 'rotate-180' : ''}`}>expand_less</span>
+            </div>
+            <div className="grid grid-cols-3 gap-4">
             <button className="group flex flex-col items-center w-full">
               <div className="w-full h-12 rounded-lg bg-s4-flat-primary hover:bg-indigo-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
                 <span className="material-symbols-outlined text-2xl">segment</span>
@@ -128,12 +144,13 @@ export default function AINotebook() {
               </div>
               <span className="text-xs font-bold text-s4-flat-text">Extract</span>
             </button>
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-yellow hover:bg-amber-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">quiz</span>
-              </div>
-              <span className="text-xs font-bold text-s4-flat-text">Quiz Me</span>
-            </button>
+              <button className="group flex flex-col items-center w-full">
+                <div className="w-full h-12 rounded-lg bg-s4-flat-yellow hover:bg-amber-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
+                  <span className="material-symbols-outlined text-2xl">quiz</span>
+                </div>
+                <span className="text-xs font-bold text-s4-flat-text">Quiz Me</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
