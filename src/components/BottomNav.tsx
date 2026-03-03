@@ -11,9 +11,14 @@ export default function BottomNav() {
     return null;
   }
 
+  // Hide nav on specific sub-pages to avoid overlap with AI Action Bar
+  if (pathname.startsWith("/notes/") && pathname !== "/notes") {
+    return null;
+  }
+
   const navItems = [
     { href: "/", label: "首页", icon: "home" },
-    { href: "/notes", label: "笔记", icon: "school" },
+    { href: "/notes", label: "笔记", icon: "edit_note" },
     { href: "/trophy-room", label: "勋章", icon: "emoji_events" },
     { href: "/profile", label: "我的", icon: "person" },
   ];
