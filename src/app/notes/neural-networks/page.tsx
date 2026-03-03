@@ -1,6 +1,10 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 
 export default function AINotebook() {
+  const [isAiExpanded, setIsAiExpanded] = useState(true);
+
   return (
     <div className="text-s4-flat-text antialiased overflow-hidden h-screen flex flex-col font-sans bg-s4-flat-bg selection:bg-s4-flat-primary/20 selection:text-s4-flat-primary">
       {/* Header */}
@@ -110,12 +114,21 @@ export default function AINotebook() {
       </main>
 
       {/* AI Action Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 pb-safe transition-all duration-300 bg-white border-t border-gray-200">
+      <div className={`fixed bottom-0 left-0 right-0 z-[110] pb-safe transition-all duration-300 bg-white border-2 border-black rounded-t-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.1)] ${isAiExpanded ? 'max-h-96' : 'max-h-14'}`}>
         <div className="w-full max-w-md mx-auto pt-4 pb-6 px-6">
-          <div className="flex justify-between items-end mb-4">
-            <h3 className="text-sm font-bold text-s4-flat-text-light uppercase tracking-wider">AI Actions</h3>
+          <div
+            className="flex justify-between items-center mb-4 cursor-pointer"
+            onClick={() => setIsAiExpanded(!isAiExpanded)}
+          >
+            <h3 className="text-sm font-bold text-s4-flat-text-light uppercase tracking-wider flex items-center gap-2">
+              <span className="material-symbols-outlined text-s4-flat-primary">auto_awesome</span>
+              AI Actions
+            </h3>
+            <span className={`material-symbols-outlined transition-transform duration-300 ${isAiExpanded ? 'rotate-180' : ''}`}>
+              expand_less
+            </span>
           </div>
-          <div className="grid grid-cols-3 gap-4">
+          <div className={`grid grid-cols-3 gap-4 transition-all duration-300 ${isAiExpanded ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
             <button className="group flex flex-col items-center w-full">
               <div className="w-full h-12 rounded-lg bg-s4-flat-primary hover:bg-indigo-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
                 <span className="material-symbols-outlined text-2xl">segment</span>
