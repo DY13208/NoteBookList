@@ -6,14 +6,18 @@ import { usePathname } from "next/navigation";
 export default function BottomNav() {
   const pathname = usePathname();
 
-  // Hide nav on login and signup pages
-  if (pathname === "/login" || pathname === "/signup") {
+  // Hide nav on login, signup pages and note detail pages
+  if (
+    pathname === "/login" ||
+    pathname === "/signup" ||
+    (pathname.startsWith("/notes/") && pathname !== "/notes")
+  ) {
     return null;
   }
 
   const navItems = [
     { href: "/", label: "首页", icon: "home" },
-    { href: "/notes", label: "笔记", icon: "school" },
+    { href: "/notes", label: "笔记", icon: "edit_note" },
     { href: "/trophy-room", label: "勋章", icon: "emoji_events" },
     { href: "/profile", label: "我的", icon: "person" },
   ];
