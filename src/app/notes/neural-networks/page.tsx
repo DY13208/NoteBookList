@@ -1,6 +1,10 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 
 export default function AINotebook() {
+  const [isAiExpanded, setIsAiExpanded] = useState(true);
+
   return (
     <div className="text-s4-flat-text antialiased overflow-hidden h-screen flex flex-col font-sans bg-s4-flat-bg selection:bg-s4-flat-primary/20 selection:text-s4-flat-primary">
       {/* Header */}
@@ -110,12 +114,23 @@ export default function AINotebook() {
       </main>
 
       {/* AI Action Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 pb-safe transition-all duration-300 bg-white border-t border-gray-200">
-        <div className="w-full max-w-md mx-auto pt-4 pb-6 px-6">
-          <div className="flex justify-between items-end mb-4">
-            <h3 className="text-sm font-bold text-s4-flat-text-light uppercase tracking-wider">AI Actions</h3>
-          </div>
-          <div className="grid grid-cols-3 gap-4">
+      <div className={`fixed bottom-0 left-0 right-0 z-[110] pb-safe transition-all duration-500 bg-white border-t-2 border-black/10 dark:border-white/10 ${isAiExpanded ? 'h-auto' : 'h-14'}`}>
+        <div className="w-full max-w-md mx-auto px-6">
+          {/* Collapse/Expand Toggle Header */}
+          <button
+            onClick={() => setIsAiExpanded(!isAiExpanded)}
+            className="w-full h-14 flex items-center justify-between border-b border-gray-50 mb-2"
+          >
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-s4-flat-primary">auto_awesome</span>
+              <h3 className="text-sm font-bold text-s4-flat-text uppercase tracking-widest">AI Actions</h3>
+            </div>
+            <span className={`material-symbols-outlined transition-transform duration-300 ${isAiExpanded ? 'rotate-180' : ''}`}>
+              keyboard_arrow_up
+            </span>
+          </button>
+
+          <div className={`grid grid-cols-3 gap-4 pb-8 transition-all duration-300 overflow-hidden ${isAiExpanded ? 'opacity-100 max-h-96' : 'opacity-0 max-h-0'}`}>
             <button className="group flex flex-col items-center w-full">
               <div className="w-full h-12 rounded-lg bg-s4-flat-primary hover:bg-indigo-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
                 <span className="material-symbols-outlined text-2xl">segment</span>
