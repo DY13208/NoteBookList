@@ -1,11 +1,20 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function AINotebook() {
+  const [isAiExpanded, setIsAiExpanded] = useState(true);
+  const router = useRouter();
+
   return (
     <div className="text-s4-flat-text antialiased overflow-hidden h-screen flex flex-col font-sans bg-s4-flat-bg selection:bg-s4-flat-primary/20 selection:text-s4-flat-primary">
       {/* Header */}
       <div className="flex-none flex items-center px-6 py-4 justify-between z-20 sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-        <button className="size-10 shrink-0 flex items-center justify-center rounded-lg bg-gray-50 text-s4-flat-text hover:bg-gray-100 transition-colors">
+        <button
+          onClick={() => router.back()}
+          className="size-10 shrink-0 flex items-center justify-center rounded-lg bg-gray-50 text-s4-flat-text hover:bg-gray-100 transition-colors"
+        >
           <span className="material-symbols-outlined">arrow_back</span>
         </button>
         <div className="flex flex-col items-center">
@@ -110,12 +119,19 @@ export default function AINotebook() {
       </main>
 
       {/* AI Action Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 pb-safe transition-all duration-300 bg-white border-t border-gray-200">
-        <div className="w-full max-w-md mx-auto pt-4 pb-6 px-6">
-          <div className="flex justify-between items-end mb-4">
+      <div className="fixed bottom-[96px] left-0 right-0 z-[110] transition-all duration-300 px-4">
+        <div className="w-full max-w-md mx-auto bg-white border-2 border-gray-100 rounded-2xl shadow-lg overflow-hidden">
+          <button
+            onClick={() => setIsAiExpanded(!isAiExpanded)}
+            className="w-full pt-4 pb-2 px-6 flex justify-between items-center hover:bg-gray-50 transition-colors"
+          >
             <h3 className="text-sm font-bold text-s4-flat-text-light uppercase tracking-wider">AI Actions</h3>
-          </div>
-          <div className="grid grid-cols-3 gap-4">
+            <span className={`material-symbols-outlined transition-transform duration-300 ${isAiExpanded ? 'rotate-180' : ''}`}>
+              expand_less
+            </span>
+          </button>
+          <div className={`transition-all duration-300 ease-in-out ${isAiExpanded ? 'max-h-96 opacity-100 pb-6 px-6' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+            <div className="grid grid-cols-3 gap-4 mt-2">
             <button className="group flex flex-col items-center w-full">
               <div className="w-full h-12 rounded-lg bg-s4-flat-primary hover:bg-indigo-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
                 <span className="material-symbols-outlined text-2xl">segment</span>
@@ -134,6 +150,7 @@ export default function AINotebook() {
               </div>
               <span className="text-xs font-bold text-s4-flat-text">Quiz Me</span>
             </button>
+            </div>
           </div>
         </div>
       </div>
