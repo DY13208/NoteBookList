@@ -109,7 +109,7 @@ export default function Profile() {
                 <span className="material-symbols-outlined font-bold">emoji_events</span>
               </div>
               <div>
-                <p className="font-black text-s5-flat-black leading-tight text-lg">荣誉室</p>
+                <p className="font-black text-s5-flat-black leading-tight text-lg">勋章</p>
                 <p className="text-xs text-s5-flat-black font-bold opacity-70">查看我的成就</p>
               </div>
             </div>
