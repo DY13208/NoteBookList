@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function KnowledgeBasePage() {
   const router = useRouter();
@@ -19,7 +20,7 @@ export default function KnowledgeBasePage() {
             >
               <span className="material-symbols-outlined text-gray-800 dark:text-white">arrow_back</span>
             </button>
-            <h2 className="text-xl font-extrabold tracking-tight flex-1 text-center">知识库</h2>
+            <h2 className="text-xl font-extrabold tracking-tight flex-1 text-center">笔记</h2>
             <div className="flex w-10 items-center justify-end">
               <button className="flex size-10 items-center justify-center rounded-full bg-s1-flat-mint text-black border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] active:translate-y-[2px] active:shadow-none transition-all">
                 <span className="material-symbols-outlined">add</span>
@@ -55,7 +56,7 @@ export default function KnowledgeBasePage() {
             </div>
             <div className="flex gap-4 overflow-x-auto no-scrollbar pb-4 snap-x snap-mandatory">
               {/* Folder Card 1 */}
-              <div className="snap-start shrink-0 w-40 h-48 bg-s3-flat-blue rounded-2xl border-[3px] border-black p-4 flex flex-col justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer group">
+              <Link href="/notes" className="snap-start shrink-0 w-40 h-48 bg-s3-flat-blue rounded-2xl border-[3px] border-black p-4 flex flex-col justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer group">
                 <div className="flex justify-between items-start">
                   <span className="material-symbols-outlined text-3xl text-black">folder_open</span>
                   <div className="bg-white/50 rounded-full px-2 py-0.5 text-xs font-bold text-black border border-black/10">12</div>
@@ -64,9 +65,9 @@ export default function KnowledgeBasePage() {
                   <p className="text-black font-extrabold text-lg leading-tight group-hover:underline decoration-2 underline-offset-2">学习笔记</p>
                   <p className="text-black/70 text-xs font-semibold mt-1">2小时前更新</p>
                 </div>
-              </div>
+              </Link>
               {/* Folder Card 2 */}
-              <div className="snap-start shrink-0 w-40 h-48 bg-s4-chiikawa-pink rounded-2xl border-[3px] border-black p-4 flex flex-col justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer group">
+              <Link href="/notes" className="snap-start shrink-0 w-40 h-48 bg-s4-chiikawa-pink rounded-2xl border-[3px] border-black p-4 flex flex-col justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer group">
                 <div className="flex justify-between items-start">
                   <span className="material-symbols-outlined text-3xl text-black">design_services</span>
                   <div className="bg-white/50 rounded-full px-2 py-0.5 text-xs font-bold text-black border border-black/10">5</div>
@@ -75,9 +76,9 @@ export default function KnowledgeBasePage() {
                   <p className="text-black font-extrabold text-lg leading-tight group-hover:underline decoration-2 underline-offset-2">项目 A</p>
                   <p className="text-black/70 text-xs font-semibold mt-1">昨天更新</p>
                 </div>
-              </div>
+              </Link>
               {/* Folder Card 3 */}
-              <div className="snap-start shrink-0 w-40 h-48 bg-s1-flat-mint rounded-2xl border-[3px] border-black p-4 flex flex-col justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer group">
+              <Link href="/notes" className="snap-start shrink-0 w-40 h-48 bg-s1-flat-mint rounded-2xl border-[3px] border-black p-4 flex flex-col justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer group">
                 <div className="flex justify-between items-start">
                   <span className="material-symbols-outlined text-3xl text-black">menu_book</span>
                   <div className="bg-white/50 rounded-full px-2 py-0.5 text-xs font-bold text-black border border-black/10">8</div>
@@ -86,7 +87,7 @@ export default function KnowledgeBasePage() {
                   <p className="text-black font-extrabold text-lg leading-tight group-hover:underline decoration-2 underline-offset-2">阅读列表</p>
                   <p className="text-black/70 text-xs font-semibold mt-1">3天前更新</p>
                 </div>
-              </div>
+              </Link>
               {/* Add Folder Card */}
               <div className="snap-start shrink-0 w-40 h-48 bg-white dark:bg-white/5 rounded-2xl border-[3px] border-dashed border-gray-300 dark:border-gray-600 p-4 flex flex-col items-center justify-center cursor-pointer hover:border-s1-flat-mint hover:bg-s1-flat-mint/5 transition-all">
                 <span className="material-symbols-outlined text-4xl text-gray-300 dark:text-gray-500 mb-2">create_new_folder</span>
@@ -110,7 +111,7 @@ export default function KnowledgeBasePage() {
             </div>
 
             {/* Note Card 1 */}
-            <div className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
+            <Link href="/notes/neural-networks" className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
               <div className="w-full sm:w-24 h-32 sm:h-auto shrink-0 rounded-xl overflow-hidden border-2 border-black relative">
                 <div className="absolute inset-0 bg-s1-flat-mint/20 z-10"></div>
                 <div
@@ -136,10 +137,10 @@ export default function KnowledgeBasePage() {
                   </span>
                 </div>
               </div>
-            </div>
+            </Link>
 
             {/* Note Card 2 */}
-            <div className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
+            <Link href="/notes/neural-networks" className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
               <div className="w-full sm:w-24 h-32 sm:h-auto shrink-0 rounded-xl overflow-hidden border-2 border-black relative">
                 <div className="absolute inset-0 bg-s4-chiikawa-pink/20 z-10"></div>
                 <div
@@ -154,7 +155,7 @@ export default function KnowledgeBasePage() {
                     <span className="material-symbols-outlined text-gray-400 group-hover:text-s1-flat-mint">bookmark_border</span>
                   </div>
                   <h4 className="text-lg font-bold leading-tight text-gray-900 dark:text-white mb-1">UI 组件库灵感</h4>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">用于新移动应用设计的扁平化UI组件、调色板和排版规则的集合。</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">用于新移动应用设计的扁平化UI组件、调色板 and 排版规则的集合。</p>
                 </div>
                 <div className="flex items-center gap-2 mt-2">
                   <span className="text-xs font-bold text-gray-400 flex items-center gap-1">
@@ -162,10 +163,10 @@ export default function KnowledgeBasePage() {
                   </span>
                 </div>
               </div>
-            </div>
+            </Link>
 
             {/* Note Card 3 */}
-            <div className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
+            <Link href="/notes/neural-networks" className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
               <div className="w-full sm:w-24 h-32 sm:h-auto shrink-0 rounded-xl overflow-hidden border-2 border-black relative">
                 <div className="w-full h-full bg-s3-accent flex items-center justify-center text-black">
                   <span className="material-symbols-outlined text-4xl">mic</span>
@@ -189,12 +190,37 @@ export default function KnowledgeBasePage() {
                   </span>
                 </div>
               </div>
-            </div>
+            </Link>
+
+            {/* Note Card 4 */}
+            <Link href="/notes/neural-networks" className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
+              <div className="w-full sm:w-24 h-32 sm:h-auto shrink-0 rounded-xl overflow-hidden border-2 border-black relative">
+                <div className="absolute inset-0 bg-blue-100/20 z-10"></div>
+                <div className="w-full h-full bg-blue-50 flex items-center justify-center text-blue-500">
+                  <span className="material-symbols-outlined text-4xl">description</span>
+                </div>
+              </div>
+              <div className="flex flex-col flex-1 justify-between gap-2">
+                <div>
+                  <div className="flex justify-between items-start">
+                    <span className="bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-1 rounded-md mb-2 inline-block uppercase tracking-wider">历史</span>
+                    <span className="material-symbols-outlined text-gray-400 group-hover:text-s1-flat-mint">bookmark_border</span>
+                  </div>
+                  <h4 className="text-lg font-bold leading-tight text-gray-900 dark:text-white mb-1">文艺复兴概论</h4>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">关于14世纪到17世纪欧洲文化、艺术、政治和经济“重生”的详细笔记。</p>
+                </div>
+                <div className="flex items-center gap-2 mt-2">
+                  <span className="text-xs font-bold text-gray-400 flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[14px]">calendar_today</span> Oct 20
+                  </span>
+                </div>
+              </div>
+            </Link>
           </section>
         </main>
 
         {/* Floating AI Actions */}
-        <div className="fixed bottom-32 right-6 z-50 flex flex-col items-end gap-3">
+        <div className="fixed bottom-32 right-6 z-[110] flex flex-col items-end gap-3">
           {/* Expanded Actions */}
           <div className={`flex flex-col gap-3 transition-all duration-300 origin-bottom ${isAiExpanded ? 'scale-100 opacity-100 mb-2' : 'scale-0 opacity-0 h-0 pointer-events-none'}`}>
             <button className="flex items-center gap-2 bg-s3-accent text-black font-bold px-4 py-2 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none transition-all">
