@@ -1,6 +1,9 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 
 export default function AINotebook() {
+  const [isAiExpanded, setIsAiExpanded] = useState(false);
   return (
     <div className="text-s4-flat-text antialiased overflow-hidden h-screen flex flex-col font-sans bg-s4-flat-bg selection:bg-s4-flat-primary/20 selection:text-s4-flat-primary">
       {/* Header */}
@@ -110,33 +113,54 @@ export default function AINotebook() {
       </main>
 
       {/* AI Action Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 pb-safe transition-all duration-300 bg-white border-t border-gray-200">
-        <div className="w-full max-w-md mx-auto pt-4 pb-6 px-6">
-          <div className="flex justify-between items-end mb-4">
-            <h3 className="text-sm font-bold text-s4-flat-text-light uppercase tracking-wider">AI Actions</h3>
+      <div className={`fixed bottom-[96px] left-4 right-4 z-[110] transition-all duration-500 ease-in-out ${isAiExpanded ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0 pointer-events-none'}`}>
+        <div className="bg-white rounded-2xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4">
+          <div className="flex justify-between items-center mb-4">
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-s4-flat-primary animate-pulse">auto_awesome</span>
+              <h3 className="text-sm font-black text-s4-flat-text uppercase tracking-widest">AI 助手</h3>
+            </div>
+            <button
+              onClick={() => setIsAiExpanded(false)}
+              className="size-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+            >
+              <span className="material-symbols-outlined text-gray-400">close</span>
+            </button>
           </div>
-          <div className="grid grid-cols-3 gap-4">
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-primary hover:bg-indigo-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">segment</span>
+          <div className="grid grid-cols-3 gap-3">
+            <button className="flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-s4-flat-primary/5 transition-colors">
+              <div className="size-12 rounded-xl bg-s4-flat-primary flex items-center justify-center text-white shadow-bold-sm active:translate-y-0.5 active:shadow-none transition-all">
+                <span className="material-symbols-outlined">segment</span>
               </div>
-              <span className="text-xs font-bold text-s4-flat-text">Summarize</span>
+              <span className="text-[10px] font-bold text-s4-flat-text uppercase">总结</span>
             </button>
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-accent hover:bg-rose-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">lightbulb</span>
+            <button className="flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-s4-flat-accent/5 transition-colors">
+              <div className="size-12 rounded-xl bg-s4-flat-accent flex items-center justify-center text-white shadow-bold-sm active:translate-y-0.5 active:shadow-none transition-all">
+                <span className="material-symbols-outlined">lightbulb</span>
               </div>
-              <span className="text-xs font-bold text-s4-flat-text">Extract</span>
+              <span className="text-[10px] font-bold text-s4-flat-text uppercase">提取</span>
             </button>
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-yellow hover:bg-amber-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">quiz</span>
+            <button className="flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-s4-flat-yellow/5 transition-colors">
+              <div className="size-12 rounded-xl bg-s4-flat-yellow flex items-center justify-center text-white shadow-bold-sm active:translate-y-0.5 active:shadow-none transition-all">
+                <span className="material-symbols-outlined">quiz</span>
               </div>
-              <span className="text-xs font-bold text-s4-flat-text">Quiz Me</span>
+              <span className="text-[10px] font-bold text-s4-flat-text uppercase">测验</span>
             </button>
           </div>
         </div>
       </div>
+
+      {/* Floating Toggle Button */}
+      <button
+        onClick={() => setIsAiExpanded(!isAiExpanded)}
+        className={`fixed right-6 z-[120] size-16 rounded-full border-3 border-black shadow-bold flex items-center justify-center transition-all duration-500 ${
+          isAiExpanded ? 'bottom-[280px] bg-white text-black rotate-180' : 'bottom-28 bg-s4-flat-primary text-white rotate-0'
+        }`}
+      >
+        <span className="material-symbols-outlined text-3xl">
+          {isAiExpanded ? 'close' : 'auto_awesome'}
+        </span>
+      </button>
     </div>
   );
 }
