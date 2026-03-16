@@ -1,11 +1,20 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function AINotebook() {
+  const router = useRouter();
+  const [isAiExpanded, setIsAiExpanded] = useState(true);
+
   return (
     <div className="text-s4-flat-text antialiased overflow-hidden h-screen flex flex-col font-sans bg-s4-flat-bg selection:bg-s4-flat-primary/20 selection:text-s4-flat-primary">
       {/* Header */}
       <div className="flex-none flex items-center px-6 py-4 justify-between z-20 sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-        <button className="size-10 shrink-0 flex items-center justify-center rounded-lg bg-gray-50 text-s4-flat-text hover:bg-gray-100 transition-colors">
+        <button
+          onClick={() => router.back()}
+          className="size-10 shrink-0 flex items-center justify-center rounded-lg bg-gray-50 text-s4-flat-text hover:bg-gray-100 transition-colors"
+        >
           <span className="material-symbols-outlined">arrow_back</span>
         </button>
         <div className="flex flex-col items-center">
@@ -110,33 +119,60 @@ export default function AINotebook() {
       </main>
 
       {/* AI Action Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 pb-safe transition-all duration-300 bg-white border-t border-gray-200">
-        <div className="w-full max-w-md mx-auto pt-4 pb-6 px-6">
-          <div className="flex justify-between items-end mb-4">
-            <h3 className="text-sm font-bold text-s4-flat-text-light uppercase tracking-wider">AI Actions</h3>
-          </div>
-          <div className="grid grid-cols-3 gap-4">
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-primary hover:bg-indigo-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">segment</span>
+      <div
+        className={`fixed left-0 right-0 z-[110] transition-all duration-300 ease-in-out ${
+          isAiExpanded ? 'bottom-[96px]' : 'bottom-[-160px]'
+        }`}
+      >
+        <div className="max-w-md mx-auto px-4">
+          <div className="bg-white/95 backdrop-blur-md border-2 border-black rounded-2xl shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+            {/* Header / Toggle */}
+            <button
+              onClick={() => setIsAiExpanded(!isAiExpanded)}
+              className="w-full py-2 px-4 bg-gray-50 border-b-2 border-black flex items-center justify-between hover:bg-gray-100 transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-s4-flat-primary text-[20px]">auto_awesome</span>
+                <h3 className="text-[10px] font-black text-s4-flat-text-light uppercase tracking-widest">AI 操作</h3>
               </div>
-              <span className="text-xs font-bold text-s4-flat-text">Summarize</span>
+              <span className={`material-symbols-outlined transition-transform duration-300 ${isAiExpanded ? 'rotate-180' : ''}`}>
+                keyboard_arrow_up
+              </span>
             </button>
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-accent hover:bg-rose-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">lightbulb</span>
-              </div>
-              <span className="text-xs font-bold text-s4-flat-text">Extract</span>
-            </button>
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-yellow hover:bg-amber-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">quiz</span>
-              </div>
-              <span className="text-xs font-bold text-s4-flat-text">Quiz Me</span>
-            </button>
+
+            <div className="p-4 grid grid-cols-3 gap-3">
+              <button className="group flex flex-col items-center gap-1">
+                <div className="w-full h-12 rounded-xl bg-s4-flat-primary flex items-center justify-center text-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none transition-all">
+                  <span className="material-symbols-outlined text-2xl">segment</span>
+                </div>
+                <span className="text-[10px] font-bold text-s4-flat-text uppercase">AI 总结</span>
+              </button>
+              <button className="group flex flex-col items-center gap-1">
+                <div className="w-full h-12 rounded-xl bg-s4-flat-accent flex items-center justify-center text-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none transition-all">
+                  <span className="material-symbols-outlined text-2xl">lightbulb</span>
+                </div>
+                <span className="text-[10px] font-bold text-s4-flat-text uppercase">提取概念</span>
+              </button>
+              <button className="group flex flex-col items-center gap-1">
+                <div className="w-full h-12 rounded-xl bg-s4-flat-yellow flex items-center justify-center text-white border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none transition-all">
+                  <span className="material-symbols-outlined text-2xl">quiz</span>
+                </div>
+                <span className="text-[10px] font-bold text-s4-flat-text uppercase">知识测验</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Mini Toggle when collapsed */}
+      {!isAiExpanded && (
+        <button
+          onClick={() => setIsAiExpanded(true)}
+          className="fixed bottom-[112px] right-6 z-[110] size-14 rounded-full bg-s4-flat-primary text-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all animate-bounce"
+        >
+          <span className="material-symbols-outlined text-2xl">auto_awesome</span>
+        </button>
+      )}
     </div>
   );
 }
