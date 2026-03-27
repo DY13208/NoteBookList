@@ -1,6 +1,10 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 
 export default function AINotebook() {
+  const [isAiExpanded, setIsAiExpanded] = useState(true);
+
   return (
     <div className="text-s4-flat-text antialiased overflow-hidden h-screen flex flex-col font-sans bg-s4-flat-bg selection:bg-s4-flat-primary/20 selection:text-s4-flat-primary">
       {/* Header */}
@@ -110,30 +114,41 @@ export default function AINotebook() {
       </main>
 
       {/* AI Action Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 pb-safe transition-all duration-300 bg-white border-t border-gray-200">
-        <div className="w-full max-w-md mx-auto pt-4 pb-6 px-6">
-          <div className="flex justify-between items-end mb-4">
-            <h3 className="text-sm font-bold text-s4-flat-text-light uppercase tracking-wider">AI Actions</h3>
-          </div>
-          <div className="grid grid-cols-3 gap-4">
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-primary hover:bg-indigo-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">segment</span>
-              </div>
-              <span className="text-xs font-bold text-s4-flat-text">Summarize</span>
-            </button>
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-accent hover:bg-rose-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">lightbulb</span>
-              </div>
-              <span className="text-xs font-bold text-s4-flat-text">Extract</span>
-            </button>
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-yellow hover:bg-amber-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">quiz</span>
-              </div>
-              <span className="text-xs font-bold text-s4-flat-text">Quiz Me</span>
-            </button>
+      <div className={`fixed bottom-[96px] left-0 right-0 z-[110] pb-safe transition-all duration-300 bg-white border-t-2 border-s4-flat-text ${isAiExpanded ? 'translate-y-0' : 'translate-y-[calc(100%-48px)] pointer-events-none'}`}>
+        <div className="pointer-events-auto">
+          <div className="w-full max-w-md mx-auto pt-2 pb-6 px-6">
+            <div
+              className="flex justify-between items-center mb-4 cursor-pointer py-2"
+              onClick={() => setIsAiExpanded(!isAiExpanded)}
+            >
+              <h3 className="text-xs font-black text-s4-flat-text-light uppercase tracking-widest flex items-center gap-2">
+                <span className="material-symbols-outlined text-[18px]">auto_awesome</span>
+                AI 操作
+              </h3>
+              <span className={`material-symbols-outlined transition-transform duration-300 ${isAiExpanded ? 'rotate-180' : ''}`}>
+                expand_less
+              </span>
+            </div>
+            <div className="grid grid-cols-3 gap-4">
+              <button className="group flex flex-col items-center w-full">
+                <div className="w-full h-12 rounded-xl bg-s4-flat-primary border-2 border-s4-flat-text shadow-[4px_4px_0px_0px_#1e1b4b] active:translate-y-1 active:shadow-none transition-all flex items-center justify-center text-white mb-2">
+                  <span className="material-symbols-outlined text-2xl">segment</span>
+                </div>
+                <span className="text-xs font-bold text-s4-flat-text">摘要</span>
+              </button>
+              <button className="group flex flex-col items-center w-full">
+                <div className="w-full h-12 rounded-xl bg-s4-flat-accent border-2 border-s4-flat-text shadow-[4px_4px_0px_0px_#1e1b4b] active:translate-y-1 active:shadow-none transition-all flex items-center justify-center text-white mb-2">
+                  <span className="material-symbols-outlined text-2xl">lightbulb</span>
+                </div>
+                <span className="text-xs font-bold text-s4-flat-text">提取</span>
+              </button>
+              <button className="group flex flex-col items-center w-full">
+                <div className="w-full h-12 rounded-xl bg-s4-flat-yellow border-2 border-s4-flat-text shadow-[4px_4px_0px_0px_#1e1b4b] active:translate-y-1 active:shadow-none transition-all flex items-center justify-center text-s4-flat-text mb-2">
+                  <span className="material-symbols-outlined text-2xl">quiz</span>
+                </div>
+                <span className="text-xs font-bold text-s4-flat-text">测验</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

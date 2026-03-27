@@ -94,9 +94,9 @@ export default function Workbench() {
               <span className="text-xs font-bold text-s1-text-sub">Chiikawa is studying...</span>
             </div>
           </div>
-          <button className="text-xs font-black text-s1-flat-blue uppercase bg-s1-flat-blue/10 px-3 py-1.5 rounded-lg hover:bg-s1-flat-blue hover:text-white transition-colors">
-            See All
-          </button>
+        <Link href="/notes" className="text-xs font-black text-s1-flat-blue uppercase bg-s1-flat-blue/10 px-3 py-1.5 rounded-lg hover:bg-s1-flat-blue hover:text-white transition-colors">
+          查看全部
+        </Link>
         </div>
         <div className="flex flex-col gap-3">
           <label className="group relative bg-s1-surface rounded-2xl p-4 cursor-pointer border-2 border-transparent hover:border-s1-flat-blue transition-all">
@@ -143,17 +143,17 @@ export default function Workbench() {
           <Link href="/notes" className="group relative flex flex-col items-center justify-center gap-2 bg-s1-flat-blue rounded-2xl py-5 active:scale-95 transition-all overflow-hidden">
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="material-symbols-outlined text-white text-[28px]">document_scanner</span>
-            <span className="text-xs font-black text-white uppercase">Scan</span>
+            <span className="text-xs font-black text-white uppercase">扫一扫</span>
           </Link>
           <Link href="/notes" className="group relative flex flex-col items-center justify-center gap-2 bg-s1-flat-pink rounded-2xl py-5 active:scale-95 transition-all overflow-hidden">
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="material-symbols-outlined text-white text-[28px]">mic</span>
-            <span className="text-xs font-black text-white uppercase">Voice</span>
+            <span className="text-xs font-black text-white uppercase">语音</span>
           </Link>
           <Link href="/notes" className="group relative flex flex-col items-center justify-center gap-2 bg-s1-flat-mint rounded-2xl py-5 active:scale-95 transition-all overflow-hidden">
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="material-symbols-outlined text-white text-[28px]">edit_note</span>
-            <span className="text-xs font-black text-white uppercase">Note</span>
+            <span className="text-xs font-black text-white uppercase">笔记</span>
           </Link>
         </div>
       </div>
