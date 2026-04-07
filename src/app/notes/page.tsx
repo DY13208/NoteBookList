@@ -19,7 +19,7 @@ export default function KnowledgeBasePage() {
             >
               <span className="material-symbols-outlined text-gray-800 dark:text-white">arrow_back</span>
             </button>
-            <h2 className="text-xl font-extrabold tracking-tight flex-1 text-center">知识库</h2>
+            <h2 className="text-xl font-extrabold tracking-tight flex-1 text-center">笔记</h2>
             <div className="flex w-10 items-center justify-end">
               <button className="flex size-10 items-center justify-center rounded-full bg-s1-flat-mint text-black border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] active:translate-y-[2px] active:shadow-none transition-all">
                 <span className="material-symbols-outlined">add</span>
@@ -110,7 +110,10 @@ export default function KnowledgeBasePage() {
             </div>
 
             {/* Note Card 1 */}
-            <div className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
+            <div
+              onClick={() => router.push('/notes/neural-networks')}
+              className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer"
+            >
               <div className="w-full sm:w-24 h-32 sm:h-auto shrink-0 rounded-xl overflow-hidden border-2 border-black relative">
                 <div className="absolute inset-0 bg-s1-flat-mint/20 z-10"></div>
                 <div
@@ -133,6 +136,30 @@ export default function KnowledgeBasePage() {
                   </span>
                   <span className="text-xs font-bold text-s1-flat-mint flex items-center gap-1 ml-auto">
                     <span className="material-symbols-outlined text-[14px]">auto_awesome</span> AI 摘要已就绪
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Note Card 4 */}
+            <div className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
+              <div className="w-full sm:w-24 h-32 sm:h-auto shrink-0 rounded-xl overflow-hidden border-2 border-black relative">
+                <div className="w-full h-full bg-s4-chiikawa-pink/20 flex items-center justify-center text-s4-flat-primary">
+                  <span className="material-symbols-outlined text-4xl">draw</span>
+                </div>
+              </div>
+              <div className="flex flex-col flex-1 justify-between gap-2">
+                <div>
+                  <div className="flex justify-between items-start">
+                    <span className="bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-1 rounded-md mb-2 inline-block uppercase tracking-wider">创意</span>
+                    <span className="material-symbols-outlined text-gray-400 group-hover:text-s1-flat-mint">bookmark_border</span>
+                  </div>
+                  <h4 className="text-lg font-bold leading-tight text-gray-900 dark:text-white mb-1">角色草图思路</h4>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">关于新角色的初步构思，包括性格特征和服装配色方案。</p>
+                </div>
+                <div className="flex items-center gap-2 mt-2">
+                  <span className="text-xs font-bold text-gray-400 flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[14px]">calendar_today</span> Oct 20
                   </span>
                 </div>
               </div>
