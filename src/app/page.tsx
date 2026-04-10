@@ -90,13 +90,13 @@ export default function Workbench() {
           <div className="flex items-center gap-3">
             <div className="size-10 bg-s1-surface rounded-xl flex items-center justify-center text-2xl">🐹</div>
             <div>
-              <h3 className="font-rounded text-s1-text-main text-xl font-black leading-none">Today&apos;s Focus</h3>
-              <span className="text-xs font-bold text-s1-text-sub">Chiikawa is studying...</span>
+              <h3 className="font-rounded text-s1-text-main text-xl font-black leading-none">今日焦点</h3>
+              <span className="text-xs font-bold text-s1-text-sub">Chiikawa 正在学习...</span>
             </div>
           </div>
-          <button className="text-xs font-black text-s1-flat-blue uppercase bg-s1-flat-blue/10 px-3 py-1.5 rounded-lg hover:bg-s1-flat-blue hover:text-white transition-colors">
-            See All
-          </button>
+          <Link href="/notes" className="text-xs font-black text-s1-flat-blue uppercase bg-s1-flat-blue/10 px-3 py-1.5 rounded-lg hover:bg-s1-flat-blue hover:text-white transition-colors">
+            查看全部
+          </Link>
         </div>
         <div className="flex flex-col gap-3">
           <label className="group relative bg-s1-surface rounded-2xl p-4 cursor-pointer border-2 border-transparent hover:border-s1-flat-blue transition-all">
@@ -107,7 +107,7 @@ export default function Workbench() {
               <div className="flex flex-col w-full">
                 <div className="flex justify-between items-start">
                   <p className="text-s1-text-main text-lg font-black leading-tight font-rounded">Python Chapter 4</p>
-                  <span className="text-[10px] font-black text-white bg-s1-flat-blue px-2 py-1 rounded">LEARNING</span>
+                  <span className="text-[10px] font-black text-white bg-s1-flat-blue px-2 py-1 rounded">学习中</span>
                 </div>
                 <div className="flex items-center gap-2 mt-2">
                   <span className="material-symbols-outlined text-s1-text-sub text-[16px]">schedule</span>
