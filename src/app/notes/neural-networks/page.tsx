@@ -1,18 +1,27 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function AINotebook() {
+  const router = useRouter();
+  const [isAiExpanded, setIsAiExpanded] = useState(true);
+
   return (
     <div className="text-s4-flat-text antialiased overflow-hidden h-screen flex flex-col font-sans bg-s4-flat-bg selection:bg-s4-flat-primary/20 selection:text-s4-flat-primary">
       {/* Header */}
       <div className="flex-none flex items-center px-6 py-4 justify-between z-20 sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-        <button className="size-10 shrink-0 flex items-center justify-center rounded-lg bg-gray-50 text-s4-flat-text hover:bg-gray-100 transition-colors">
+        <button
+          onClick={() => router.back()}
+          className="size-10 shrink-0 flex items-center justify-center rounded-lg bg-gray-50 text-s4-flat-text hover:bg-gray-100 transition-colors"
+        >
           <span className="material-symbols-outlined">arrow_back</span>
         </button>
         <div className="flex flex-col items-center">
-          <h2 className="text-s4-flat-text text-lg font-bold tracking-tight font-display">My Notebook</h2>
+          <h2 className="text-s4-flat-text text-lg font-bold tracking-tight font-display">笔记详情</h2>
           <div className="flex items-center gap-1.5 mt-0.5">
             <span className="block w-2 h-2 rounded-full bg-green-500"></span>
-            <span className="text-xs font-semibold text-s4-flat-text-light uppercase tracking-wide">Synced</span>
+            <span className="text-xs font-semibold text-s4-flat-text-light uppercase tracking-wide">已同步</span>
           </div>
         </div>
         <button className="size-10 shrink-0 flex items-center justify-center rounded-lg bg-gray-50 text-s4-flat-text hover:bg-gray-100 transition-colors">
@@ -110,29 +119,40 @@ export default function AINotebook() {
       </main>
 
       {/* AI Action Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 pb-safe transition-all duration-300 bg-white border-t border-gray-200">
-        <div className="w-full max-w-md mx-auto pt-4 pb-6 px-6">
-          <div className="flex justify-between items-end mb-4">
-            <h3 className="text-sm font-bold text-s4-flat-text-light uppercase tracking-wider">AI Actions</h3>
+      <div
+        className={`fixed left-0 right-0 z-[110] transition-all duration-300 bg-white border-t-2 border-gray-100 dark:border-white/10 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] bottom-[96px] ${
+          isAiExpanded ? 'max-h-[300px]' : 'max-h-[48px]'
+        } overflow-hidden`}
+      >
+        <div className="w-full max-w-md mx-auto px-6 pb-6">
+          <button
+            onClick={() => setIsAiExpanded(!isAiExpanded)}
+            className="w-full py-3 flex items-center justify-center gap-2 group"
+          >
+            <div className="w-12 h-1.5 rounded-full bg-gray-200 group-hover:bg-s4-flat-primary transition-colors"></div>
+          </button>
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-xs font-black text-s4-flat-text-light uppercase tracking-[0.2em]">AI 操作</h3>
+            <span className="material-symbols-outlined text-s4-flat-primary animate-pulse text-[20px]">auto_awesome</span>
           </div>
           <div className="grid grid-cols-3 gap-4">
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-primary hover:bg-indigo-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
+            <button className="group flex flex-col items-center w-full active:scale-95 transition-transform">
+              <div className="w-full h-12 rounded-xl bg-s4-flat-primary hover:bg-indigo-600 transition-colors flex items-center justify-center text-white mb-2 shadow-bold-sm border-2 border-black">
                 <span className="material-symbols-outlined text-2xl">segment</span>
               </div>
-              <span className="text-xs font-bold text-s4-flat-text">Summarize</span>
+              <span className="text-[11px] font-black text-s4-flat-text uppercase tracking-wider">摘要</span>
             </button>
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-accent hover:bg-rose-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
+            <button className="group flex flex-col items-center w-full active:scale-95 transition-transform">
+              <div className="w-full h-12 rounded-xl bg-s4-flat-accent hover:bg-rose-600 transition-colors flex items-center justify-center text-white mb-2 shadow-bold-sm border-2 border-black">
                 <span className="material-symbols-outlined text-2xl">lightbulb</span>
               </div>
-              <span className="text-xs font-bold text-s4-flat-text">Extract</span>
+              <span className="text-[11px] font-black text-s4-flat-text uppercase tracking-wider">提取</span>
             </button>
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-yellow hover:bg-amber-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
+            <button className="group flex flex-col items-center w-full active:scale-95 transition-transform">
+              <div className="w-full h-12 rounded-xl bg-s4-flat-yellow hover:bg-amber-600 transition-colors flex items-center justify-center text-white mb-2 shadow-bold-sm border-2 border-black">
                 <span className="material-symbols-outlined text-2xl">quiz</span>
               </div>
-              <span className="text-xs font-bold text-s4-flat-text">Quiz Me</span>
+              <span className="text-[11px] font-black text-s4-flat-text uppercase tracking-wider">测验</span>
             </button>
           </div>
         </div>
