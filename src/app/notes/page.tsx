@@ -19,7 +19,7 @@ export default function KnowledgeBasePage() {
             >
               <span className="material-symbols-outlined text-gray-800 dark:text-white">arrow_back</span>
             </button>
-            <h2 className="text-xl font-extrabold tracking-tight flex-1 text-center">知识库</h2>
+            <h2 className="text-xl font-extrabold tracking-tight flex-1 text-center">笔记</h2>
             <div className="flex w-10 items-center justify-end">
               <button className="flex size-10 items-center justify-center rounded-full bg-s1-flat-mint text-black border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] active:translate-y-[2px] active:shadow-none transition-all">
                 <span className="material-symbols-outlined">add</span>
