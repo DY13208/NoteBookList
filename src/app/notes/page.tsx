@@ -19,7 +19,7 @@ export default function KnowledgeBasePage() {
             >
               <span className="material-symbols-outlined text-gray-800 dark:text-white">arrow_back</span>
             </button>
-            <h2 className="text-xl font-extrabold tracking-tight flex-1 text-center">知识库</h2>
+            <h2 className="text-xl font-extrabold tracking-tight flex-1 text-center">笔记</h2>
             <div className="flex w-10 items-center justify-end">
               <button className="flex size-10 items-center justify-center rounded-full bg-s1-flat-mint text-black border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] active:translate-y-[2px] active:shadow-none transition-all">
                 <span className="material-symbols-outlined">add</span>
@@ -110,7 +110,10 @@ export default function KnowledgeBasePage() {
             </div>
 
             {/* Note Card 1 */}
-            <div className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
+            <div
+              onClick={() => router.push('/notes/neural-networks')}
+              className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer"
+            >
               <div className="w-full sm:w-24 h-32 sm:h-auto shrink-0 rounded-xl overflow-hidden border-2 border-black relative">
                 <div className="absolute inset-0 bg-s1-flat-mint/20 z-10"></div>
                 <div
@@ -133,6 +136,32 @@ export default function KnowledgeBasePage() {
                   </span>
                   <span className="text-xs font-bold text-s1-flat-mint flex items-center gap-1 ml-auto">
                     <span className="material-symbols-outlined text-[14px]">auto_awesome</span> AI 摘要已就绪
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Note Card 4 */}
+            <div className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
+              <div className="w-full sm:w-24 h-32 sm:h-auto shrink-0 rounded-xl overflow-hidden border-2 border-black relative">
+                <div className="absolute inset-0 bg-s3-flat-blue/20 z-10"></div>
+                <div
+                  className="w-full h-full bg-cover bg-center"
+                  style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-FjHY-KLLUSvGbG9icKiqgyjpjUukFTLy_gWWBr3MOTOGU2qJ7JvMM_cIyJXOpBnXykjbRAHFesqTcIFCqgwocIBk7cQ99S9_7Mn_3teppbAO35W-pbMPazmzZMeD80Kt34KIoSx6O_0weMYDWPX2_swrbJ-yGeMwOz4x-VHjsryXWF-CWiO_KsMksrmzIKnGSz9j9lLpElxxoFXgctcdjpogwdlS-UonqTqLeNNs-y_c1Yk8uwr8vxVlKQe9cPrLo_ap9hLcGWc")' }}
+                ></div>
+              </div>
+              <div className="flex flex-col flex-1 justify-between gap-2">
+                <div>
+                  <div className="flex justify-between items-start">
+                    <span className="bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-1 rounded-md mb-2 inline-block uppercase tracking-wider">角色草图</span>
+                    <span className="material-symbols-outlined text-gray-400 group-hover:text-s1-flat-mint">bookmark_border</span>
+                  </div>
+                  <h4 className="text-lg font-bold leading-tight text-gray-900 dark:text-white mb-1">角色草图思路</h4>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">为即将到来的动画项目准备的一系列关于 Chiikawa 及其朋友的草图思路。</p>
+                </div>
+                <div className="flex items-center gap-2 mt-2">
+                  <span className="text-xs font-bold text-gray-400 flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[14px]">calendar_today</span> Oct 20
                   </span>
                 </div>
               </div>
@@ -194,7 +223,7 @@ export default function KnowledgeBasePage() {
         </main>
 
         {/* Floating AI Actions */}
-        <div className="fixed bottom-32 right-6 z-50 flex flex-col items-end gap-3">
+        <div className="fixed bottom-32 right-6 z-[110] flex flex-col items-end gap-3">
           {/* Expanded Actions */}
           <div className={`flex flex-col gap-3 transition-all duration-300 origin-bottom ${isAiExpanded ? 'scale-100 opacity-100 mb-2' : 'scale-0 opacity-0 h-0 pointer-events-none'}`}>
             <button className="flex items-center gap-2 bg-s3-accent text-black font-bold px-4 py-2 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none transition-all">
