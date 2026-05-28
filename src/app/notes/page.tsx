@@ -19,7 +19,7 @@ export default function KnowledgeBasePage() {
             >
               <span className="material-symbols-outlined text-gray-800 dark:text-white">arrow_back</span>
             </button>
-            <h2 className="text-xl font-extrabold tracking-tight flex-1 text-center">知识库</h2>
+            <h2 className="text-xl font-extrabold tracking-tight flex-1 text-center">笔记</h2>
             <div className="flex w-10 items-center justify-end">
               <button className="flex size-10 items-center justify-center rounded-full bg-s1-flat-mint text-black border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] active:translate-y-[2px] active:shadow-none transition-all">
                 <span className="material-symbols-outlined">add</span>
@@ -55,7 +55,10 @@ export default function KnowledgeBasePage() {
             </div>
             <div className="flex gap-4 overflow-x-auto no-scrollbar pb-4 snap-x snap-mandatory">
               {/* Folder Card 1 */}
-              <div className="snap-start shrink-0 w-40 h-48 bg-s3-flat-blue rounded-2xl border-[3px] border-black p-4 flex flex-col justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer group">
+              <div
+                onClick={() => router.push('/notes/neural-networks')}
+                className="snap-start shrink-0 w-40 h-48 bg-s3-flat-blue rounded-2xl border-[3px] border-black p-4 flex flex-col justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all cursor-pointer group"
+              >
                 <div className="flex justify-between items-start">
                   <span className="material-symbols-outlined text-3xl text-black">folder_open</span>
                   <div className="bg-white/50 rounded-full px-2 py-0.5 text-xs font-bold text-black border border-black/10">12</div>
@@ -110,7 +113,10 @@ export default function KnowledgeBasePage() {
             </div>
 
             {/* Note Card 1 */}
-            <div className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
+            <div
+              onClick={() => router.push('/notes/neural-networks')}
+              className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer"
+            >
               <div className="w-full sm:w-24 h-32 sm:h-auto shrink-0 rounded-xl overflow-hidden border-2 border-black relative">
                 <div className="absolute inset-0 bg-s1-flat-mint/20 z-10"></div>
                 <div
@@ -190,11 +196,60 @@ export default function KnowledgeBasePage() {
                 </div>
               </div>
             </div>
+
+            {/* Note Card 4 */}
+            <div className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
+              <div className="w-full sm:w-24 h-32 sm:h-auto shrink-0 rounded-xl overflow-hidden border-2 border-black relative">
+                <div className="w-full h-full bg-s1-flat-blue/30 flex items-center justify-center text-black">
+                  <span className="material-symbols-outlined text-4xl">sketch</span>
+                </div>
+              </div>
+              <div className="flex flex-col flex-1 justify-between gap-2">
+                <div>
+                  <div className="flex justify-between items-start">
+                    <span className="bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-1 rounded-md mb-2 inline-block uppercase tracking-wider">艺术</span>
+                    <span className="material-symbols-outlined text-gray-400 group-hover:text-s1-flat-mint">bookmark_border</span>
+                  </div>
+                  <h4 className="text-lg font-bold leading-tight text-gray-900 dark:text-white mb-1">角色草图思路</h4>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">为即将推出的动画短片收集的角色设计草图和背景故事片段。</p>
+                </div>
+                <div className="flex items-center gap-2 mt-2">
+                  <span className="text-xs font-bold text-gray-400 flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[14px]">calendar_today</span> Oct 20
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Note Card 5 */}
+            <div className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
+              <div className="w-full sm:w-24 h-32 sm:h-auto shrink-0 rounded-xl overflow-hidden border-2 border-black relative">
+                <div className="w-full h-full bg-s1-flat-mint/40 flex items-center justify-center text-black">
+                  <span className="material-symbols-outlined text-4xl">description</span>
+                </div>
+              </div>
+              <div className="flex flex-col flex-1 justify-between gap-2">
+                <div>
+                  <div className="flex justify-between items-start">
+                    <span className="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-1 rounded-md mb-2 inline-block uppercase tracking-wider">生物</span>
+                    <span className="material-symbols-outlined text-gray-400 group-hover:text-s1-flat-mint">bookmark_border</span>
+                  </div>
+                  <h4 className="text-lg font-bold leading-tight text-gray-900 dark:text-white mb-1">细胞学基础</h4>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">关于真核细胞和原核细胞之间区别的详细讲义。</p>
+                </div>
+                <div className="flex items-center gap-2 mt-2">
+                  <span className="text-xs font-bold text-gray-400 flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[14px]">calendar_today</span> Oct 18
+                  </span>
+                </div>
+              </div>
+            </div>
           </section>
         </main>
 
         {/* Floating AI Actions */}
-        <div className="fixed bottom-32 right-6 z-50 flex flex-col items-end gap-3">
+        <div className="fixed bottom-40 right-6 z-[110] flex flex-col items-end gap-3 pointer-events-none">
+          <div className="pointer-events-auto flex flex-col items-end gap-3">
           {/* Expanded Actions */}
           <div className={`flex flex-col gap-3 transition-all duration-300 origin-bottom ${isAiExpanded ? 'scale-100 opacity-100 mb-2' : 'scale-0 opacity-0 h-0 pointer-events-none'}`}>
             <button className="flex items-center gap-2 bg-s3-accent text-black font-bold px-4 py-2 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none transition-all">
@@ -207,28 +262,29 @@ export default function KnowledgeBasePage() {
             </button>
           </div>
 
-          {/* Main Toggle Button (Hachiware) */}
-          <button
-            onClick={() => setIsAiExpanded(!isAiExpanded)}
-            className="w-24 h-24 relative group active:scale-95 transition-transform"
-          >
-            <div className={`absolute -top-2 right-12 bg-white border-2 border-black px-3 py-1 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-opacity ${isAiExpanded ? 'opacity-0' : 'opacity-100'}`}>
-              <p className="text-xs font-bold text-black whitespace-nowrap">需要帮助？✨</p>
-            </div>
-            <div className="w-full h-full bg-white dark:bg-gray-200 border-[3px] border-black rounded-full overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
-              <img
-                alt="Cute flat illustration of Hachiware cat holding a folder"
-                className="w-full h-full object-cover"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcw4VZKTbRArMhvd7foS1DnZYK33ZqkICZdWKbGdNiY919X7Qjpmur5cyXF2ptZ_ixQPnp6Qp4GZdDvEqVjAAVbhxG9QYg7hIPMim5mm0pj6JwrSPdUd7cmBtwQf9fHaZj5kgk9fwvW4-PrcAv4LHODDYhw2Hv689r4LRHj4-lcIfEnl4EXRnZyxc5Q70rgFeLPJc47lQMIlZTkIy2HKpc-Qwu4rXmhRhg0j_K3NkIIAHGVzDVpfsfNVvUbDUdANxqOqFHd1q9bX8"
-              />
-            </div>
-            {/* Close icon when expanded */}
-            {isAiExpanded && (
-              <div className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full p-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] animate-pop-up-bounce">
-                <span className="material-symbols-outlined text-sm font-bold">close</span>
+            {/* Main Toggle Button (Hachiware) */}
+            <button
+              onClick={() => setIsAiExpanded(!isAiExpanded)}
+              className="w-24 h-24 relative group active:scale-95 transition-transform mb-16"
+            >
+              <div className={`absolute -top-2 right-12 bg-white border-2 border-black px-3 py-1 rounded-xl shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-opacity ${isAiExpanded ? 'opacity-0' : 'opacity-100'}`}>
+                <p className="text-xs font-bold text-black whitespace-nowrap">需要帮助？✨</p>
               </div>
-            )}
-          </button>
+              <div className="w-full h-full bg-white dark:bg-gray-200 border-[3px] border-black rounded-full overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all">
+                <img
+                  alt="Cute flat illustration of Hachiware cat holding a folder"
+                  className="w-full h-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcw4VZKTbRArMhvd7foS1DnZYK33ZqkICZdWKbGdNiY919X7Qjpmur5cyXF2ptZ_ixQPnp6Qp4GZdDvEqVjAAVbhxG9QYg7hIPMim5mm0pj6JwrSPdUd7cmBtwQf9fHaZj5kgk9fwvW4-PrcAv4LHODDYhw2Hv689r4LRHj4-lcIfEnl4EXRnZyxc5Q70rgFeLPJc47lQMIlZTkIy2HKpc-Qwu4rXmhRhg0j_K3NkIIAHGVzDVpfsfNVvUbDUdANxqOqFHd1q9bX8"
+                />
+              </div>
+              {/* Close icon when expanded */}
+              {isAiExpanded && (
+                <div className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full p-1 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] animate-pop-up-bounce">
+                  <span className="material-symbols-outlined text-sm font-bold">close</span>
+                </div>
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </div>
