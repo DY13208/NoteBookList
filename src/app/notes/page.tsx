@@ -19,7 +19,7 @@ export default function KnowledgeBasePage() {
             >
               <span className="material-symbols-outlined text-gray-800 dark:text-white">arrow_back</span>
             </button>
-            <h2 className="text-xl font-extrabold tracking-tight flex-1 text-center">知识库</h2>
+            <h2 className="text-xl font-extrabold tracking-tight flex-1 text-center">笔记</h2>
             <div className="flex w-10 items-center justify-end">
               <button className="flex size-10 items-center justify-center rounded-full bg-s1-flat-mint text-black border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] active:translate-y-[2px] active:shadow-none transition-all">
                 <span className="material-symbols-outlined">add</span>
@@ -139,6 +139,39 @@ export default function KnowledgeBasePage() {
             </div>
 
             {/* Note Card 2 */}
+            <div
+              onClick={() => router.push('/notes/neural-networks')}
+              className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer"
+            >
+              <div className="w-full sm:w-24 h-32 sm:h-auto shrink-0 rounded-xl overflow-hidden border-2 border-black relative">
+                <div className="absolute inset-0 bg-s1-flat-blue/20 z-10"></div>
+                <div
+                  className="w-full h-full bg-cover bg-center"
+                  style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-FjHY-KLLUSvGbG9icKiqgyjpjUukFTLy_gWWBr3MOTOGU2qJ7JvMM_cIyJXOpBnXykjbRAHFesqTcIFCqgwocIBk7cQ99S9_7Mn_3teppbAO35W-pbMPazmzZMeD80Kt34KIoSx6O_0weMYDWPX2_swrbJ-yGeMwOz4x-VHjsryXWF-CWiO_KsMksrmzIKnGSz9j9lLpElxxoFXgctcdjpogwdlS-UonqTqLeNNs-y_c1Yk8uwr8vxVlKQe9cPrLo_ap9hLcGWc")' }}
+                ></div>
+              </div>
+              <div className="flex flex-col flex-1 justify-between gap-2">
+                <div>
+                  <div className="flex justify-between items-start">
+                    <span className="bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-1 rounded-md mb-2 inline-block uppercase tracking-wider">技术</span>
+                    <span className="material-symbols-outlined text-gray-400 group-hover:text-s1-flat-mint">bookmark_border</span>
+                  </div>
+                  <h4 className="text-lg font-bold leading-tight text-gray-900 dark:text-white mb-1">神经网络入门</h4>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">关于感知机、多层网络和反向传播的基本概念和实现细节。</p>
+                </div>
+                <div className="flex items-center gap-2 mt-2">
+                  <span className="text-xs font-bold text-gray-400 flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[14px]">calendar_today</span> Oct 25
+                  </span>
+                  <span className="text-xs font-bold text-s1-flat-mint flex items-center gap-1 ml-auto">
+                    <span className="material-symbols-outlined text-[14px]">auto_awesome</span> 深度解析
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Note Card 3 */}
+            {/* Note Card 4 */}
             <div className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
               <div className="w-full sm:w-24 h-32 sm:h-auto shrink-0 rounded-xl overflow-hidden border-2 border-black relative">
                 <div className="absolute inset-0 bg-s4-chiikawa-pink/20 z-10"></div>
@@ -164,7 +197,7 @@ export default function KnowledgeBasePage() {
               </div>
             </div>
 
-            {/* Note Card 3 */}
+            {/* Note Card 5 */}
             <div className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
               <div className="w-full sm:w-24 h-32 sm:h-auto shrink-0 rounded-xl overflow-hidden border-2 border-black relative">
                 <div className="w-full h-full bg-s3-accent flex items-center justify-center text-black">
