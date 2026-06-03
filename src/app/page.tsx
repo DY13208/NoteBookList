@@ -24,7 +24,7 @@ export default function Workbench() {
                 Chiikawa OS
               </span>
               <h2 className="font-rounded text-lg font-black text-s1-text-main leading-none">
-                Alex&apos;s Space
+                Alex 的空间
               </h2>
             </div>
           </div>
@@ -38,7 +38,7 @@ export default function Workbench() {
       {/* Hero Section */}
       <div className="px-6 pt-8 pb-2">
         <h1 className="font-rounded text-s1-text-main text-[2.5rem] font-black leading-tight">
-          Good morning,<br />
+          早上好,<br />
           <span className="text-s1-flat-blue">Alex!</span>
         </h1>
       </div>
@@ -52,7 +52,7 @@ export default function Workbench() {
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/20">
               <span className="material-symbols-outlined text-white text-[18px]">auto_awesome</span>
               <span className="text-xs font-black font-rounded text-white uppercase tracking-wide">
-                Weekly Insight
+                每周洞察
               </span>
             </div>
             <div className="absolute -top-12 -right-2 z-20 animate-float">
@@ -73,11 +73,11 @@ export default function Workbench() {
               <div className="bg-s1-text-main h-full w-full rounded-full"></div>
             </div>
             <p className="text-sm text-s1-text-main font-bold leading-relaxed mb-6 font-rounded opacity-90 pr-4">
-              Spanish Vocabulary targets crushed! <br />Usagi is screaming with excitement.
+              西班牙语词汇目标已达成！<br />Usagi 兴奋地尖叫着。
             </p>
             <div className="flex gap-3">
               <button className="flex-1 rounded-xl bg-white py-3 text-sm font-black text-s1-text-main border-b-4 border-gray-200 active:border-b-0 active:translate-y-1 hover:bg-gray-50 transition-all">
-                View Report
+                查看报告
               </button>
             </div>
           </div>
@@ -90,13 +90,13 @@ export default function Workbench() {
           <div className="flex items-center gap-3">
             <div className="size-10 bg-s1-surface rounded-xl flex items-center justify-center text-2xl">🐹</div>
             <div>
-              <h3 className="font-rounded text-s1-text-main text-xl font-black leading-none">Today&apos;s Focus</h3>
-              <span className="text-xs font-bold text-s1-text-sub">Chiikawa is studying...</span>
+              <h3 className="font-rounded text-s1-text-main text-xl font-black leading-none">今日焦点</h3>
+              <span className="text-xs font-bold text-s1-text-sub">Chiikawa 正在学习...</span>
             </div>
           </div>
-          <button className="text-xs font-black text-s1-flat-blue uppercase bg-s1-flat-blue/10 px-3 py-1.5 rounded-lg hover:bg-s1-flat-blue hover:text-white transition-colors">
-            See All
-          </button>
+          <Link href="/notes" className="text-xs font-black text-s1-flat-blue uppercase bg-s1-flat-blue/10 px-3 py-1.5 rounded-lg hover:bg-s1-flat-blue hover:text-white transition-colors">
+            查看全部
+          </Link>
         </div>
         <div className="flex flex-col gap-3">
           <label className="group relative bg-s1-surface rounded-2xl p-4 cursor-pointer border-2 border-transparent hover:border-s1-flat-blue transition-all">
@@ -106,12 +106,12 @@ export default function Workbench() {
               </div>
               <div className="flex flex-col w-full">
                 <div className="flex justify-between items-start">
-                  <p className="text-s1-text-main text-lg font-black leading-tight font-rounded">Python Chapter 4</p>
-                  <span className="text-[10px] font-black text-white bg-s1-flat-blue px-2 py-1 rounded">LEARNING</span>
+                  <p className="text-s1-text-main text-lg font-black leading-tight font-rounded">Python 第四章</p>
+                  <span className="text-[10px] font-black text-white bg-s1-flat-blue px-2 py-1 rounded">学习中</span>
                 </div>
                 <div className="flex items-center gap-2 mt-2">
                   <span className="material-symbols-outlined text-s1-text-sub text-[16px]">schedule</span>
-                  <span className="text-xs text-s1-text-sub font-bold">45m remaining</span>
+                  <span className="text-xs text-s1-text-sub font-bold">剩余 45 分钟</span>
                 </div>
               </div>
             </div>
@@ -123,12 +123,12 @@ export default function Workbench() {
               </div>
               <div className="flex flex-col w-full">
                 <div className="flex justify-between items-start">
-                  <p className="text-s1-text-main text-lg font-black leading-tight font-rounded">Project Outline</p>
-                  <span className="text-[10px] font-black text-white bg-s1-flat-pink px-2 py-1 rounded">PROJECT</span>
+                  <p className="text-s1-text-main text-lg font-black leading-tight font-rounded">项目大纲</p>
+                  <span className="text-[10px] font-black text-white bg-s1-flat-pink px-2 py-1 rounded">项目</span>
                 </div>
                 <div className="flex items-center gap-2 mt-2">
                   <span className="material-symbols-outlined text-s1-flat-pink text-[16px] fill-current">warning</span>
-                  <span className="text-xs text-s1-flat-pink font-extrabold">Due Tomorrow</span>
+                  <span className="text-xs text-s1-flat-pink font-extrabold">明天截止</span>
                 </div>
               </div>
             </div>
@@ -138,22 +138,22 @@ export default function Workbench() {
 
       {/* Quick Capture Section */}
       <div className="px-6 py-6">
-        <h3 className="font-rounded text-s1-text-main text-lg font-black mb-4">Quick Capture</h3>
+        <h3 className="font-rounded text-s1-text-main text-lg font-black mb-4">快速记录</h3>
         <div className="grid grid-cols-3 gap-3">
           <Link href="/notes" className="group relative flex flex-col items-center justify-center gap-2 bg-s1-flat-blue rounded-2xl py-5 active:scale-95 transition-all overflow-hidden">
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="material-symbols-outlined text-white text-[28px]">document_scanner</span>
-            <span className="text-xs font-black text-white uppercase">Scan</span>
+            <span className="text-xs font-black text-white uppercase">扫一扫</span>
           </Link>
           <Link href="/notes" className="group relative flex flex-col items-center justify-center gap-2 bg-s1-flat-pink rounded-2xl py-5 active:scale-95 transition-all overflow-hidden">
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="material-symbols-outlined text-white text-[28px]">mic</span>
-            <span className="text-xs font-black text-white uppercase">Voice</span>
+            <span className="text-xs font-black text-white uppercase">语音</span>
           </Link>
           <Link href="/notes" className="group relative flex flex-col items-center justify-center gap-2 bg-s1-flat-mint rounded-2xl py-5 active:scale-95 transition-all overflow-hidden">
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="material-symbols-outlined text-white text-[28px]">edit_note</span>
-            <span className="text-xs font-black text-white uppercase">Note</span>
+            <span className="text-xs font-black text-white uppercase">笔记</span>
           </Link>
         </div>
       </div>
@@ -164,8 +164,8 @@ export default function Workbench() {
           <div className="flex items-center gap-3">
             <div className="size-10 bg-s1-surface rounded-xl flex items-center justify-center text-2xl">🐱</div>
             <div>
-              <h3 className="font-rounded text-s1-text-main text-xl font-black leading-none">Recent Notes</h3>
-              <span className="text-xs font-bold text-s1-text-sub">Hachiware is smiling!</span>
+              <h3 className="font-rounded text-s1-text-main text-xl font-black leading-none">最近笔记</h3>
+              <span className="text-xs font-bold text-s1-text-sub">Hachiware 正在微笑！</span>
             </div>
           </div>
           <div className="flex gap-1 bg-s1-surface p-1 rounded-lg">
@@ -189,10 +189,10 @@ export default function Workbench() {
               ></div>
             </div>
             <div className="flex flex-1 flex-col justify-center">
-              <h4 className="font-rounded text-md font-black text-s1-text-main line-clamp-1">Neural Networks 101</h4>
+              <h4 className="font-rounded text-md font-black text-s1-text-main line-clamp-1">神经网络入门</h4>
               <div className="flex items-center gap-2 mt-1">
-                <span className="rounded px-1.5 py-0.5 text-[10px] font-black text-white bg-s1-flat-blue uppercase">Note</span>
-                <span className="text-xs text-s1-text-sub font-bold">2h ago</span>
+                <span className="rounded px-1.5 py-0.5 text-[10px] font-black text-white bg-s1-flat-blue uppercase">笔记</span>
+                <span className="text-xs text-s1-text-sub font-bold">2小时前</span>
               </div>
             </div>
             <div className="size-8 flex items-center justify-center rounded-lg text-s1-text-sub hover:bg-white hover:text-s1-text-main transition-all">
@@ -204,10 +204,10 @@ export default function Workbench() {
               <span className="material-symbols-outlined text-[32px]">folder_open</span>
             </div>
             <div className="flex flex-1 flex-col justify-center">
-              <h4 className="font-rounded text-md font-black text-s1-text-main line-clamp-1">History Research</h4>
+              <h4 className="font-rounded text-md font-black text-s1-text-main line-clamp-1">历史研究</h4>
               <div className="flex items-center gap-2 mt-1">
-                <span className="rounded px-1.5 py-0.5 text-[10px] font-black text-white bg-s1-flat-mint uppercase">Project</span>
-                <span className="text-xs text-s1-text-sub font-bold">Yesterday</span>
+                <span className="rounded px-1.5 py-0.5 text-[10px] font-black text-white bg-s1-flat-mint uppercase">项目</span>
+                <span className="text-xs text-s1-text-sub font-bold">昨天</span>
               </div>
             </div>
             <div className="size-8 flex items-center justify-center rounded-lg text-s1-text-sub hover:bg-white hover:text-s1-text-main transition-all">
@@ -225,10 +225,10 @@ export default function Workbench() {
               ></div>
             </div>
             <div className="flex flex-1 flex-col justify-center">
-              <h4 className="font-rounded text-md font-black text-s1-text-main line-clamp-1">Gardening Basics</h4>
+              <h4 className="font-rounded text-md font-black text-s1-text-main line-clamp-1">园艺基础</h4>
               <div className="flex items-center gap-2 mt-1">
-                <span className="rounded px-1.5 py-0.5 text-[10px] font-black text-white bg-green-500 uppercase">Course</span>
-                <span className="text-xs text-s1-text-sub font-bold">30% Done</span>
+                <span className="rounded px-1.5 py-0.5 text-[10px] font-black text-white bg-green-500 uppercase">课程</span>
+                <span className="text-xs text-s1-text-sub font-bold">已完成 30%</span>
               </div>
             </div>
             <div className="size-8 flex items-center justify-center rounded-lg text-s1-text-sub hover:bg-white hover:text-s1-text-main transition-all">
