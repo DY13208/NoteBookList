@@ -52,7 +52,7 @@ export default function Workbench() {
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/20">
               <span className="material-symbols-outlined text-white text-[18px]">auto_awesome</span>
               <span className="text-xs font-black font-rounded text-white uppercase tracking-wide">
-                Weekly Insight
+                每周洞察
               </span>
             </div>
             <div className="absolute -top-12 -right-2 z-20 animate-float">
@@ -77,7 +77,7 @@ export default function Workbench() {
             </p>
             <div className="flex gap-3">
               <button className="flex-1 rounded-xl bg-white py-3 text-sm font-black text-s1-text-main border-b-4 border-gray-200 active:border-b-0 active:translate-y-1 hover:bg-gray-50 transition-all">
-                View Report
+                查看报告
               </button>
             </div>
           </div>
@@ -90,13 +90,13 @@ export default function Workbench() {
           <div className="flex items-center gap-3">
             <div className="size-10 bg-s1-surface rounded-xl flex items-center justify-center text-2xl">🐹</div>
             <div>
-              <h3 className="font-rounded text-s1-text-main text-xl font-black leading-none">Today&apos;s Focus</h3>
-              <span className="text-xs font-bold text-s1-text-sub">Chiikawa is studying...</span>
+              <h3 className="font-rounded text-s1-text-main text-xl font-black leading-none">今日焦点</h3>
+              <span className="text-xs font-bold text-s1-text-sub">Chiikawa 正在学习...</span>
             </div>
           </div>
-          <button className="text-xs font-black text-s1-flat-blue uppercase bg-s1-flat-blue/10 px-3 py-1.5 rounded-lg hover:bg-s1-flat-blue hover:text-white transition-colors">
-            See All
-          </button>
+          <Link href="/notes" className="text-xs font-black text-s1-flat-blue uppercase bg-s1-flat-blue/10 px-3 py-1.5 rounded-lg hover:bg-s1-flat-blue hover:text-white transition-colors">
+            查看全部
+          </Link>
         </div>
         <div className="flex flex-col gap-3">
           <label className="group relative bg-s1-surface rounded-2xl p-4 cursor-pointer border-2 border-transparent hover:border-s1-flat-blue transition-all">
@@ -138,22 +138,22 @@ export default function Workbench() {
 
       {/* Quick Capture Section */}
       <div className="px-6 py-6">
-        <h3 className="font-rounded text-s1-text-main text-lg font-black mb-4">Quick Capture</h3>
+        <h3 className="font-rounded text-s1-text-main text-lg font-black mb-4">快速记录</h3>
         <div className="grid grid-cols-3 gap-3">
           <Link href="/notes" className="group relative flex flex-col items-center justify-center gap-2 bg-s1-flat-blue rounded-2xl py-5 active:scale-95 transition-all overflow-hidden">
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="material-symbols-outlined text-white text-[28px]">document_scanner</span>
-            <span className="text-xs font-black text-white uppercase">Scan</span>
+            <span className="text-xs font-black text-white uppercase">扫一扫</span>
           </Link>
           <Link href="/notes" className="group relative flex flex-col items-center justify-center gap-2 bg-s1-flat-pink rounded-2xl py-5 active:scale-95 transition-all overflow-hidden">
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="material-symbols-outlined text-white text-[28px]">mic</span>
-            <span className="text-xs font-black text-white uppercase">Voice</span>
+            <span className="text-xs font-black text-white uppercase">语音</span>
           </Link>
           <Link href="/notes" className="group relative flex flex-col items-center justify-center gap-2 bg-s1-flat-mint rounded-2xl py-5 active:scale-95 transition-all overflow-hidden">
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <span className="material-symbols-outlined text-white text-[28px]">edit_note</span>
-            <span className="text-xs font-black text-white uppercase">Note</span>
+            <span className="text-xs font-black text-white uppercase">笔记</span>
           </Link>
         </div>
       </div>
@@ -164,7 +164,7 @@ export default function Workbench() {
           <div className="flex items-center gap-3">
             <div className="size-10 bg-s1-surface rounded-xl flex items-center justify-center text-2xl">🐱</div>
             <div>
-              <h3 className="font-rounded text-s1-text-main text-xl font-black leading-none">Recent Notes</h3>
+              <h3 className="font-rounded text-s1-text-main text-xl font-black leading-none">最近笔记</h3>
               <span className="text-xs font-bold text-s1-text-sub">Hachiware is smiling!</span>
             </div>
           </div>

@@ -110,7 +110,10 @@ export default function KnowledgeBasePage() {
             </div>
 
             {/* Note Card 1 */}
-            <div className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer">
+            <div
+              onClick={() => router.push('/notes/neural-networks')}
+              className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-2xl bg-white dark:bg-[#1a2e1a] border-2 border-gray-100 dark:border-gray-800 p-4 hover:border-s1-flat-mint/50 transition-all cursor-pointer"
+            >
               <div className="w-full sm:w-24 h-32 sm:h-auto shrink-0 rounded-xl overflow-hidden border-2 border-black relative">
                 <div className="absolute inset-0 bg-s1-flat-mint/20 z-10"></div>
                 <div
@@ -194,7 +197,7 @@ export default function KnowledgeBasePage() {
         </main>
 
         {/* Floating AI Actions */}
-        <div className="fixed bottom-32 right-6 z-50 flex flex-col items-end gap-3">
+        <div className="fixed bottom-32 right-6 z-[110] flex flex-col items-end gap-3">
           {/* Expanded Actions */}
           <div className={`flex flex-col gap-3 transition-all duration-300 origin-bottom ${isAiExpanded ? 'scale-100 opacity-100 mb-2' : 'scale-0 opacity-0 h-0 pointer-events-none'}`}>
             <button className="flex items-center gap-2 bg-s3-accent text-black font-bold px-4 py-2 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none transition-all">
