@@ -1,18 +1,27 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function AINotebook() {
+  const router = useRouter();
+  const [isAiExpanded, setIsAiExpanded] = useState(true);
+
   return (
     <div className="text-s4-flat-text antialiased overflow-hidden h-screen flex flex-col font-sans bg-s4-flat-bg selection:bg-s4-flat-primary/20 selection:text-s4-flat-primary">
       {/* Header */}
       <div className="flex-none flex items-center px-6 py-4 justify-between z-20 sticky top-0 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-        <button className="size-10 shrink-0 flex items-center justify-center rounded-lg bg-gray-50 text-s4-flat-text hover:bg-gray-100 transition-colors">
+        <button
+          onClick={() => router.back()}
+          className="size-10 shrink-0 flex items-center justify-center rounded-lg bg-gray-50 text-s4-flat-text hover:bg-gray-100 transition-colors"
+        >
           <span className="material-symbols-outlined">arrow_back</span>
         </button>
         <div className="flex flex-col items-center">
-          <h2 className="text-s4-flat-text text-lg font-bold tracking-tight font-display">My Notebook</h2>
+          <h2 className="text-s4-flat-text text-lg font-bold tracking-tight font-display">笔记详情</h2>
           <div className="flex items-center gap-1.5 mt-0.5">
             <span className="block w-2 h-2 rounded-full bg-green-500"></span>
-            <span className="text-xs font-semibold text-s4-flat-text-light uppercase tracking-wide">Synced</span>
+            <span className="text-xs font-semibold text-s4-flat-text-light uppercase tracking-wide">已同步</span>
           </div>
         </div>
         <button className="size-10 shrink-0 flex items-center justify-center rounded-lg bg-gray-50 text-s4-flat-text hover:bg-gray-100 transition-colors">
@@ -26,11 +35,11 @@ export default function AINotebook() {
           <div className="flex flex-col gap-2 mb-8 relative">
             <div className="flex items-center gap-3 mb-2">
               <span className="px-3 py-1 rounded-md bg-s4-flat-primary/10 text-xs font-bold text-s4-flat-primary tracking-wide uppercase border border-s4-flat-primary/20">
-                AI Summary
+                AI 摘要
               </span>
               <span className="text-xs font-medium text-s4-flat-text-light flex items-center gap-1">
                 <span className="material-symbols-outlined text-[14px]">schedule</span>
-                2 min read
+                2 分钟阅读
               </span>
             </div>
             <h1 className="text-4xl font-extrabold text-s4-flat-text leading-[1.1] font-display tracking-tight">
@@ -40,7 +49,7 @@ export default function AINotebook() {
             <div className="flex gap-2 mt-6 overflow-x-auto no-scrollbar pb-2">
               <div className="flex-none px-3 py-1.5 rounded-md bg-s4-flat-surface border border-gray-200 text-s4-flat-text text-sm font-semibold flex items-center gap-2">
                 <span className="material-symbols-outlined text-[16px] text-s4-flat-primary">folder</span>
-                Project Alpha
+                项目 Alpha
               </div>
               <div className="flex-none px-3 py-1.5 rounded-md bg-white border border-gray-200 text-s4-flat-text-light text-sm font-medium hover:border-s4-flat-primary/50 transition-colors">
                 #DeepLearning
@@ -66,10 +75,10 @@ export default function AINotebook() {
               <div className="p-5 border-b border-gray-200 bg-gray-50/50 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-s4-flat-primary">grid_3x3</span>
-                  <h3 className="font-bold text-s4-flat-text text-lg font-display">Perceptrons</h3>
+                  <h3 className="font-bold text-s4-flat-text text-lg font-display">感知器</h3>
                 </div>
                 <span className="text-[10px] font-bold bg-red-100 text-red-600 px-2 py-0.5 rounded uppercase tracking-wider">
-                  Hard Concept
+                  难点概念
                 </span>
               </div>
               <div className="p-5 relative">
@@ -110,30 +119,41 @@ export default function AINotebook() {
       </main>
 
       {/* AI Action Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 pb-safe transition-all duration-300 bg-white border-t border-gray-200">
-        <div className="w-full max-w-md mx-auto pt-4 pb-6 px-6">
-          <div className="flex justify-between items-end mb-4">
-            <h3 className="text-sm font-bold text-s4-flat-text-light uppercase tracking-wider">AI Actions</h3>
-          </div>
-          <div className="grid grid-cols-3 gap-4">
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-primary hover:bg-indigo-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">segment</span>
-              </div>
-              <span className="text-xs font-bold text-s4-flat-text">Summarize</span>
+      <div className="fixed bottom-[100px] left-0 right-0 z-[110] pointer-events-none transition-all duration-300">
+        <div className="w-full max-w-md mx-auto px-4 pointer-events-auto">
+          <div className="bg-white/95 backdrop-blur-md rounded-2xl border-2 border-black/5 shadow-[0_-8px_30px_rgb(0,0,0,0.12)] overflow-hidden">
+            <button
+              onClick={() => setIsAiExpanded(!isAiExpanded)}
+              className="w-full pt-4 pb-2 px-6 flex justify-between items-center hover:bg-gray-50 transition-colors"
+            >
+              <h3 className="text-sm font-bold text-s4-flat-text-light uppercase tracking-wider">AI 操作</h3>
+              <span className="material-symbols-outlined text-gray-400 transition-transform duration-300" style={{ transform: isAiExpanded ? 'rotate(0deg)' : 'rotate(180deg)' }}>
+                expand_more
+              </span>
             </button>
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-accent hover:bg-rose-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">lightbulb</span>
+
+            <div className={`transition-all duration-300 ease-in-out overflow-hidden ${isAiExpanded ? 'max-h-96 opacity-100 pb-6 px-6' : 'max-h-0 opacity-0'}`}>
+              <div className="grid grid-cols-3 gap-4 pt-2">
+                <button className="group flex flex-col items-center w-full">
+                  <div className="w-full h-12 rounded-lg bg-s4-flat-primary hover:bg-indigo-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
+                    <span className="material-symbols-outlined text-2xl">segment</span>
+                  </div>
+                  <span className="text-xs font-bold text-s4-flat-text">摘要</span>
+                </button>
+                <button className="group flex flex-col items-center w-full">
+                  <div className="w-full h-12 rounded-lg bg-s4-flat-accent hover:bg-rose-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
+                    <span className="material-symbols-outlined text-2xl">lightbulb</span>
+                  </div>
+                  <span className="text-xs font-bold text-s4-flat-text">提取</span>
+                </button>
+                <button className="group flex flex-col items-center w-full">
+                  <div className="w-full h-12 rounded-lg bg-s4-flat-yellow hover:bg-amber-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
+                    <span className="material-symbols-outlined text-2xl">quiz</span>
+                  </div>
+                  <span className="text-xs font-bold text-s4-flat-text">测验</span>
+                </button>
               </div>
-              <span className="text-xs font-bold text-s4-flat-text">Extract</span>
-            </button>
-            <button className="group flex flex-col items-center w-full">
-              <div className="w-full h-12 rounded-lg bg-s4-flat-yellow hover:bg-amber-600 transition-colors flex items-center justify-center text-white mb-2 shadow-md">
-                <span className="material-symbols-outlined text-2xl">quiz</span>
-              </div>
-              <span className="text-xs font-bold text-s4-flat-text">Quiz Me</span>
-            </button>
+            </div>
           </div>
         </div>
       </div>
