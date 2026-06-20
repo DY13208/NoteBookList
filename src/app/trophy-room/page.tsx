@@ -88,7 +88,7 @@ export default function TrophyRoom() {
         <Link href="/profile" className="flex size-12 shrink-0 items-center justify-center rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-colors cursor-pointer">
           <span className="material-symbols-outlined text-[24px]">arrow_back</span>
         </Link>
-        <h2 className="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">荣誉室</h2>
+        <h2 className="text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">勋章</h2>
         <div className="flex size-12 items-center justify-center">
           <button className="flex size-12 cursor-pointer items-center justify-center rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
             <span className="material-symbols-outlined text-[24px]">settings</span>
